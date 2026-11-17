@@ -319,23 +319,29 @@ img{max-width:100%;display:block}
   .rolling-item{width:140px;height:64px}
 }
 
-/* ===== 메인 제목: 명조체 + 한 글자씩 등장 ===== */
-.hero-title{font-family:'Noto Serif KR',serif;font-weight:700;font-size:58px;line-height:1.35;letter-spacing:-.02em}
-.hero-title .ch{display:inline-block;opacity:0;transform:translateY(.4em);filter:blur(6px);
-  animation:chIn .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 55ms + .2s)}
-.hero-title .sp{display:inline-block;width:.28em}
-@keyframes chIn{to{opacity:1;transform:none;filter:blur(0)}}
-
-/* 설명·버튼은 제목이 다 나온 뒤 등장 */
-.reveal{opacity:0;transform:translateY(14px);animation:fadeUp .8s ease forwards}
-.hero .lead.reveal{animation-delay:var(--after,1.6s)}
-.hero .btns.reveal{animation-delay:calc(var(--after,1.6s) + .2s)}
-@keyframes fadeUp{to{opacity:1;transform:none}}
-
-/* 섹션 제목도 명조체로 */
-.main-head h2,.sub-visual h1{font-family:'Noto Serif KR',serif;font-weight:700}
-
-@media (max-width:760px){.hero-title{font-size:32px}}
-@media (prefers-reduced-motion:reduce){
-  .hero-title .ch,.reveal{animation:none;opacity:1;transform:none;filter:none}
+/* 제목 폰트 · 크기 */
+.hero-title{
+  font-family:'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size:clamp(36px, 6vw, 80px);
+  font-weight:700;
+  line-height:1.25;
+  letter-spacing:-0.03em;
 }
+
+/* 글자 하나하나: 크기 유지 + 시간차 등장 */
+.hero-title .w{ display:inline-block; white-space:nowrap; font-size:inherit; }
+.hero-title .ch{
+  display:inline-block; font-size:inherit; font-weight:inherit;
+  opacity:0; transform:translateY(.35em); filter:blur(8px);
+  animation:chIn .9s cubic-bezier(.2,.7,.2,1) forwards;
+  animation-delay:calc(var(--i) * 55ms);
+}
+@keyframes chIn{ to{ opacity:1; transform:none; filter:blur(0); } }
+
+/* 설명 문구 · 버튼: 제목이 다 나온 뒤 등장 */
+.hero-title ~ .reveal{
+  opacity:0;
+  animation:fadeUp .8s ease forwards;
+  animation-delay:var(--after);
+}
+@keyframes fadeUp{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;} }
