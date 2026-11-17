@@ -1,0 +1,21 @@
+# 메인 롤링 협력사 로고
+# logo: images/partners/ 폴더의 파일명 (없으면 회사명 글자로 표시됨)
+seoul:
+  - { name: "아비꼬", logo: "" }
+  - { name: "HOLLYS COFFEE", logo: "" }
+  - { name: "공차", logo: "" }
+  - { name: "바나프레소", logo: "" }
+  - { name: "동국제약", logo: "" }
+  - { name: "KB손해보험", logo: "" }
+  - { name: "smeg", logo: "" }
+  - { name: "bhc", logo: "" }
+  - { name: "TONYMOLY", logo: "" }
+  - { name: "KCI", logo: "" }
+  - { name: "8seconds", logo: "" }
+central:
+  - { name: "아웃백 스테이크하우스", logo: "" }
+  - { name: "차병원", logo: "" }
+  - { name: "Dentium", logo: "" }
+  - { name: "JKC", logo: "" }
+  - { name: "TEXONE", logo: "" }
+  - { name: "WITHUS", logo: "" }
