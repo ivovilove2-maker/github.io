@@ -304,3 +304,26 @@ img{max-width:100%;display:block}
   .hero h1{font-size:24px}
   .hero + .main-sec{padding:16px 0 32px}
 }
+
+/* ===== 메인 비주얼: 빌딩 사진 + 네이비 ===== */
+.hero{
+  position:relative;padding:80px 0;color:#fff;
+  background:
+    linear-gradient(90deg,rgba(23,37,64,.92) 0%,rgba(31,47,77,.75) 45%,rgba(31,47,77,.15) 100%),
+    url('../../images/hero.jpg') center 35%/cover no-repeat,
+    #1F2F4D;
+}
+.hero::before,.hero::after{display:none}
+.hero h1{color:#fff;font-size:36px;line-height:1.35;margin:0 0 12px;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+.hero .lead{color:#D5DDEC;font-size:15px;margin:0 0 26px}
+.hero .btn-primary{background:#F5822A;box-shadow:none}
+.hero .btn-primary:hover{background:#D96A14}
+.hero .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+@media (max-width:760px){
+  .hero{padding:52px 0;background:
+    linear-gradient(rgba(23,37,64,.8),rgba(23,37,64,.8)),
+    url('../../images/hero.jpg') center/cover no-repeat,#1F2F4D}
+  .hero h1{font-size:26px}
+}
