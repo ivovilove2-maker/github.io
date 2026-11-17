@@ -284,3 +284,20 @@ img{max-width:100%;display:block}
 @media (max-width:760px){
   .rolling-item{width:140px;height:64px}
 }
+
+/* ===== 메인 비주얼 축소 + 롤링 위로 ===== */
+.hero{padding:56px 0 48px}
+.hero h1{font-size:36px;margin-bottom:12px}
+.hero .lead{margin-bottom:24px}
+.hero::before{width:300px;height:300px;right:-60px;top:-90px}
+.hero::after{width:160px;height:160px;right:180px;bottom:-80px}
+
+/* 비주얼 바로 아래 Partner 영역 여백 줄이기 */
+.hero + .main-sec{padding:32px 0 48px}
+.hero + .main-sec .main-head{margin-bottom:16px}
+
+@media (max-width:760px){
+  .hero{padding:40px 0 36px}
+  .hero h1{font-size:28px}
+  .hero + .main-sec{padding:24px 0 36px}
+}
