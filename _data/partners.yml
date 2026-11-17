@@ -2,7 +2,7 @@
 # logo: images/partners/ 폴더의 파일명 (없으면 회사명 글자로 표시됨)
 seoul:
   - { name: "아비꼬", logo: "" }
-  - { name: "HOLLYS COFFEE", logo: "" }
+  - { name: "HOLLYS COFFEE", logo: "hollys-coffee.png" }
   - { name: "공차", logo: "" }
   - { name: "바나프레소", logo: "" }
   - { name: "동국제약", logo: "" }
@@ -13,7 +13,7 @@ seoul:
   - { name: "KCI", logo: "" }
   - { name: "8seconds", logo: "" }
 central:
-  - { name: "아웃백 스테이크하우스", logo: "" }
+  - { name: "아웃백 스테이크하우스", logo: "outback.png" }
   - { name: "차병원", logo: "" }
   - { name: "Dentium", logo: "" }
   - { name: "JKC", logo: "" }

@@ -1,0 +1,73 @@
+{% comment %}
+  메인 파트너존 (남색)
+  사용: {% include partner-zone.html %}
+  파트너 목록: _data/partners.yml  /  채용 사례: _data/cases.yml
+  logo 가 비어 있으면 회사명 글자로 표시됨
+{% endcomment %}
+{% assign seoul = site.data.partners.seoul %}
+{% assign central = site.data.partners.central %}
+{% assign total = seoul.size | plus: central.size %}
+{% assign regions = "seoul,central" | split: "," %}
+<section class="pz" id="partners">
+  <span class="pz-bgword" aria-hidden="true">PARTNERS</span>
+
+  <div class="pz-inner">
+    <div class="pz-text">
+      <span class="pz-eyebrow">OUR PARTNERS</span>
+      <h2 class="pz-title">고객사와 함께<br><em>성장하는</em> 파트너</h2>
+      <p class="pz-desc">외식 · 유통 · 패션 · 제약 · 금융 등 다양한 업종의<br>고객사가 SEHI와 함께하고 있습니다.</p>
+
+      <dl class="pz-stats">
+        <div><dt>협력 고객사</dt><dd><b class="pz-count" data-to="{{ total }}">{{ total }}</b><small>곳</small></dd></div>
+        <div><dt>채용 진행 사례</dt><dd><b class="pz-count" data-to="{{ site.data.cases.size }}">{{ site.data.cases.size }}</b><small>건</small></dd></div>
+        <div><dt>운영 거점</dt><dd><b class="pz-count" data-to="{{ site.company.contacts.size }}">{{ site.company.contacts.size }}</b><small>곳</small></dd></div>
+      </dl>
+
+      <div class="pz-tabs" role="tablist" aria-label="지역별 파트너">
+        <button type="button" class="pz-tab on" role="tab" aria-selected="true" data-filter="all">전체 <span>{{ total }}</span></button>
+        <button type="button" class="pz-tab" role="tab" aria-selected="false" data-filter="seoul">서울본사 <span>{{ seoul.size }}</span></button>
+        <button type="button" class="pz-tab" role="tab" aria-selected="false" data-filter="central">중부지점 <span>{{ central.size }}</span></button>
+      </div>
+
+      <a class="pz-link" href="{{ '/partner.html' | relative_url }}">협력업체 전체 보기
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="pz-frame">
+      <div class="pz-viewport">
+        <div class="pz-track"></div>
+      </div>
+
+      <div class="pz-ctrl">
+        <span class="pz-num"><em>01</em> / 01</span>
+        <div class="pz-bars"></div>
+        <button type="button" class="pz-prev" aria-label="이전 파트너">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" class="pz-next" aria-label="다음 파트너">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <ul class="pz-source" aria-label="협력업체">
+        {% for key in regions %}{% for p in site.data.partners[key] %}
+        <li data-region="{{ key }}">{% if p.logo and p.logo != "" %}<img src="{{ '/images/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }}">{% else %}<span>{{ p.name }}</span>{% endif %}</li>
+        {% endfor %}{% endfor %}
+      </ul>
+    </div>
+
+    <div class="pz-cases">
+      <strong class="pz-cases-label">최근 채용 진행</strong>
+      <div class="pz-cases-view">
+        <div class="pz-cases-track">
+          {% for loop in (1..2) %}
+          <ul{% if loop == 2 %} aria-hidden="true"{% endif %}>
+            {% for c in site.data.cases %}<li>{{ c }}</li>{% endfor %}
+          </ul>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
