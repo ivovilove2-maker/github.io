@@ -531,3 +531,75 @@ img{max-width:100%;display:block}
   }
   .is-home .main-sec.alt > .wrap{ width:100%; }
 }
+
+/* =========================================================
+   메인 Business (연회색 · 편집형 목록)
+   ========================================================= */
+.main-sec.bz{
+  --bz-bg:#F2F3F5;
+  --bz-ink:#14213D;           /* 남색 계열 글자 */
+  --bz-sub:#5B6478;
+  --bz-mute:#9AA2B1;
+  --bz-line:#D5D9E0;
+  --bz-accent:#E8732A;
+  background:var(--bz-bg); color:var(--bz-ink);
+}
+.bz-grid{ display:grid; grid-template-columns:minmax(0, 4fr) minmax(0, 7fr); gap:clamp(32px, 6vw, 96px); align-items:start; }
+.bz-eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.2em; color:var(--bz-accent); margin-bottom:18px; }
+.bz-eyebrow::before{ content:""; width:28px; height:2px; background:var(--bz-accent); }
+.bz-title{ margin:0 0 18px; font-size:clamp(30px, 3.4vw, 46px); font-weight:800; line-height:1.3; letter-spacing:-0.03em; color:var(--bz-ink); }
+.bz-desc{ margin:0 0 28px; font-size:16px; line-height:1.75; color:var(--bz-sub); }
+.bz-more{ display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:var(--bz-ink); border-bottom:1px solid var(--bz-ink); padding-bottom:2px; }
+.bz-more:hover{ color:var(--bz-accent); border-color:var(--bz-accent); }
+.bz-more svg, .bz-cta svg{ transition:transform .25s; }
+.bz-more:hover svg, .bz-cta:hover svg{ transform:translateX(4px); }
+
+/* 사업 목록: 카드 없이 가는 선으로만 구분 */
+.bz-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--bz-ink); }
+.bz-list li{ border-bottom:1px solid var(--bz-line); }
+.bz-list a{
+  position:relative; display:grid; grid-template-columns:56px minmax(0, 1.25fr) minmax(0, 1fr) 28px;
+  align-items:center; gap:20px; padding:28px 8px 28px 0;
+  transition:padding .35s cubic-bezier(.2,.7,.2,1);
+}
+.bz-list a::before{   /* 마우스 올리면 왼쪽에서 그어지는 주황 선 */
+  content:""; position:absolute; left:0; bottom:-1px; width:0; height:2px; background:var(--bz-accent);
+  transition:width .45s cubic-bezier(.2,.7,.2,1);
+}
+.bz-no{ font-size:14px; font-weight:600; color:var(--bz-mute); font-variant-numeric:tabular-nums; transition:color .3s; }
+.bz-list strong{ font-size:clamp(18px, 1.6vw, 22px); font-weight:700; letter-spacing:-0.02em; transition:color .3s; }
+.bz-txt{ font-size:15px; color:var(--bz-sub); }
+.bz-arrow{ color:var(--bz-mute); justify-self:end; transition:transform .3s, color .3s; }
+.bz-list a:hover{ padding-left:16px; }
+.bz-list a:hover::before{ width:100%; }
+.bz-list a:hover .bz-no, .bz-list a:hover strong, .bz-list a:hover .bz-arrow{ color:var(--bz-accent); }
+.bz-list a:hover .bz-arrow{ transform:translateX(6px); }
+
+/* 상담 문의: 박스 없이 한 줄 */
+.bz-contact{
+  display:flex; align-items:center; flex-wrap:wrap; gap:12px 28px;
+  margin-top:clamp(40px, 6vh, 72px); padding-top:24px; border-top:1px solid var(--bz-line);
+}
+.bz-contact strong{ font-size:15px; font-weight:700; }
+.bz-contact p{ margin:0; display:flex; flex-wrap:wrap; gap:4px 24px; font-size:15px; color:var(--bz-sub); }
+.bz-contact p a{ color:var(--bz-ink); font-weight:600; margin-left:4px; }
+.bz-contact p a:hover{ color:var(--bz-accent); }
+.bz-cta{
+  margin-left:auto; display:inline-flex; align-items:center; gap:8px;
+  padding:13px 24px; border-radius:999px; background:var(--bz-ink); color:#fff; font-size:14px; font-weight:600;
+  transition:background .25s;
+}
+.bz-cta:hover{ background:var(--bz-accent); color:#fff; }
+
+@media (max-width:960px){
+  .bz-grid{ grid-template-columns:minmax(0, 1fr); gap:32px; }
+  .bz-title br, .bz-desc br{ display:none; }
+}
+@media (max-width:760px){
+  .bz-list a{ grid-template-columns:40px minmax(0, 1fr) 20px; gap:6px 12px; padding:20px 4px 20px 0; }
+  .bz-txt{ grid-column:2; grid-row:2; font-size:14px; }
+  .bz-arrow{ grid-column:3; grid-row:1 / span 2; }
+  .bz-list a:hover{ padding-left:0; }
+  .bz-contact{ flex-direction:column; align-items:flex-start; }
+  .bz-cta{ margin-left:0; }
+}

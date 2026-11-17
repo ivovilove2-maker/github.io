@@ -16,16 +16,33 @@ description: "㈜에스이에이치인터내셔널(SEHI) - 근로자 파견, 도
 
   {% include partner-zone.html %}
 
-  <section class="main-sec alt">
+  <section class="main-sec alt bz">
     <div class="wrap">
-      <div class="main-head"><h2>Business</h2><a href="business.html">더보기 +</a></div>
-      <div class="svc">
-        <a href="dispatch.html"><strong>근로자 파견</strong><span>단기 파견부터 휴가·휴직 대체 인력까지</span></a>
-        <a href="dispatch.html"><strong>도급 · 유통/물류 아웃소싱</strong><span>생산성 향상과 매출 극대화를 위한 인력 운영</span></a>
-        <a href="headhunting.html"><strong>채용대행 · 헤드헌팅</strong><span>전문인력과 관리자급 인재 채용</span></a>
-        <a href="payroll.html"><strong>급여대행</strong><span>급여 · 4대보험 · 연말정산 · 신고업무</span></a>
+      <div class="bz-grid">
+        <div class="bz-head">
+          <span class="bz-eyebrow">BUSINESS</span>
+          <h2 class="bz-title">채용부터 급여까지, <br>한 곳에서</h2>
+          <p class="bz-desc">근로자 파견 · 도급 · 채용대행 · 급여대행까지 <br>SEHI가 함께합니다.</p>
+          <a class="bz-more" href="business.html">사업소개 전체 보기
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <ol class="bz-list">
+          <li><a href="dispatch.html"><span class="bz-no">01</span><strong>근로자 파견</strong><span class="bz-txt">단기 파견부터 휴가·휴직 대체 인력까지</span><svg class="bz-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="dispatch.html"><span class="bz-no">02</span><strong>도급 · 유통/물류 아웃소싱</strong><span class="bz-txt">생산성 향상과 매출 극대화를 위한 인력 운영</span><svg class="bz-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="headhunting.html"><span class="bz-no">03</span><strong>채용대행 · 헤드헌팅</strong><span class="bz-txt">전문인력과 관리자급 인재 채용</span><svg class="bz-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="payroll.html"><span class="bz-no">04</span><strong>급여대행</strong><span class="bz-txt">급여 · 4대보험 · 연말정산 · 신고업무</span><svg class="bz-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        </ol>
       </div>
-      {% include contact-cta.html %}
+
+      <div class="bz-contact">
+        <strong>상담 문의</strong>
+        <p>{% for ct in site.company.contacts %}<span>{{ ct.name }} <a href="tel:{{ ct.phones[0] | remove: '-' }}">{{ ct.phones[0] }}</a></span>{% endfor %}</p>
+        <a class="bz-cta" href="inquiry.html">고객문의 바로가기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
