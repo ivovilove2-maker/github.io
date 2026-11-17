@@ -1,0 +1,9 @@
+{% assign c = site.company %}
+<footer class="ft">
+  <div class="wrap">
+    <p class="ft-name">{{ c.name }}</p>
+    <p>대표 : {{ c.ceo }} <i>|</i> 사업자번호 : {{ c.biz_no }} <i>|</i> 주소 : {{ c.address }}</p>
+    <p>TEL : {{ c.tel }} <i>|</i> FAX : {{ c.fax }} <i>|</i> {{ c.email }}</p>
+    <p class="copy">Copyright © 2018 {{ c.name }}. All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<div class="sub-visual">
+  <div class="wrap">
+    <p class="en">{{ page.group }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="slogan">Your business partner, sehi</p>
+  </div>
+</div>
+{% include lnb.html %}
+<main class="sub-body">
+  <div class="wrap">
+    <div class="loc-path"><a href="{{ '/' | relative_url }}">HOME</a> &gt; {{ page.group }} &gt; <strong>{{ page.title }}</strong></div>
+{{ content }}
+  </div>
+</main>

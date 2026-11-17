@@ -59,7 +59,7 @@ img{max-width:100%;display:block}
 .btn-line:hover{border-color:var(--brand);color:var(--brand)}
 
 /* ===== 메인 ===== */
-.hero{position:relative;overflow:hidden;background:var(--brand-soft) url('../images/hero.jpg') right center/cover no-repeat;padding:110px 0 100px}
+.hero{position:relative;overflow:hidden;background:var(--brand-soft) url('../../images/hero.jpg') right center/cover no-repeat;padding:110px 0 100px}
 .hero::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:#FFE0C7;right:-80px;top:-120px;opacity:.7}
 .hero::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#FFD2AE;right:220px;bottom:-110px;opacity:.6}
 .hero .wrap{position:relative;z-index:1}
@@ -100,7 +100,7 @@ img{max-width:100%;display:block}
 .quick-grid span{font-size:13px;color:var(--sub)}
 
 /* ===== 서브 공통 ===== */
-.sub-visual{position:relative;overflow:hidden;background:var(--brand-soft) url('../images/sub.jpg') right center/cover no-repeat;padding:60px 0}
+.sub-visual{position:relative;overflow:hidden;background:var(--brand-soft) url('../../images/sub.jpg') right center/cover no-repeat;padding:60px 0}
 .sub-visual::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#FFE0C7;right:-60px;top:-90px;opacity:.8}
 .sub-visual .wrap{position:relative;z-index:1}
 .sub-visual .en{margin:0;color:var(--brand);font-weight:700;font-size:13px;letter-spacing:.06em}
@@ -247,4 +247,18 @@ img{max-width:100%;display:block}
   .sub-visual h1{font-size:28px}
   .greet-lead .big{font-size:21px}
   .inq-form,.post,.biz article{padding:24px}
+}
+
+/* ===== 로고 (심볼 C: 이어진 리본) ===== */
+.logo{display:inline-flex;flex-direction:column;gap:3px;line-height:1}
+.logo-row{display:flex;align-items:flex-end;gap:8px}
+.logo-sym{width:34px;height:34px;flex-shrink:0}
+.logo-word{font-family:'Outfit',sans-serif;font-weight:800;font-size:32px;line-height:.85;letter-spacing:-.02em;color:var(--ink)}
+.logo-i{position:relative;display:inline-block}
+.logo-i::after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand)}
+.logo-tag{font-family:'Outfit',sans-serif;font-weight:500;font-size:9px;letter-spacing:.02em;color:var(--sub);white-space:nowrap}
+@media (max-width:760px){
+  .logo-sym{width:28px;height:28px}
+  .logo-word{font-size:27px}
+  .logo-tag{font-size:8px}
 }

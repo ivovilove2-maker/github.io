@@ -1,0 +1,28 @@
+# 상단 메뉴 · 서브메뉴 구조
+# 메뉴를 추가/수정하면 모든 페이지에 자동 반영됩니다.
+- name: About SEHI
+  url: greeting.html
+  sub:
+    - { name: 인사말, url: greeting.html }
+    - { name: 조직도, url: organization.html }
+    - { name: 연혁, url: history.html }
+    - { name: 찾아오시는길, url: location.html }
+- name: Business
+  url: business.html
+  sub:
+    - { name: 사업소개, url: business.html }
+- name: Partner
+  url: partner.html
+  sub:
+    - { name: 협력업체, url: partner.html }
+- name: Notice
+  url: notice.html
+  sub:
+    - { name: 공지사항, url: notice.html }
+- name: 채용문의
+  url: dispatch.html
+  sub:
+    - { name: 파견/도급, url: dispatch.html }
+    - { name: 채용대행/헤드헌팅, url: headhunting.html }
+    - { name: 급여대행/기타, url: payroll.html }
+    - { name: 고객문의, url: inquiry.html }

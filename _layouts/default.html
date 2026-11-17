@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko">
+<head>
+{% include head.html %}
+</head>
+<body>
+{% include header.html %}
+{{ content }}
+{% include quick.html %}
+{% include footer.html %}
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

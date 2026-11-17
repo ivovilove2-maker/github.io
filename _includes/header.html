@@ -1,0 +1,23 @@
+<header class="hd">
+  <div class="util wrap">
+    <a href="{{ '/' | relative_url }}">HOME</a>
+    <a href="{{ '/notice.html' | relative_url }}">NOTICE</a>
+    <a href="{{ '/location.html' | relative_url }}">MAP</a>
+  </div>
+  <div class="wrap nav">
+    {% include logo.html %}
+    <nav aria-label="주 메뉴">
+      <ul class="gnb" id="gnb">
+        {% for m in site.data.menu %}
+        <li{% if page.group == m.name %} class="on"{% endif %}>
+          <a href="{{ m.url | relative_url }}">{{ m.name }}</a>
+          <ul class="dep2">
+            {% for s in m.sub %}<li><a href="{{ s.url | relative_url }}">{{ s.name }}</a></li>{% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
