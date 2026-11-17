@@ -286,18 +286,21 @@ img{max-width:100%;display:block}
 }
 
 /* ===== 메인 비주얼 축소 + 롤링 위로 ===== */
-.hero{padding:56px 0 48px}
-.hero h1{font-size:36px;margin-bottom:12px}
-.hero .lead{margin-bottom:24px}
-.hero::before{width:300px;height:300px;right:-60px;top:-90px}
-.hero::after{width:160px;height:160px;right:180px;bottom:-80px}
+.hero{padding:36px 0 32px}
+.hero .eyebrow{margin-bottom:10px;padding:4px 12px;font-size:12px}
+.hero h1{font-size:30px;line-height:1.3;margin-bottom:8px}
+.hero .lead{font-size:15px;margin-bottom:18px}
+.hero .btn{padding:10px 22px;font-size:14px}
+.hero::before{width:220px;height:220px;right:-50px;top:-70px}
+.hero::after{display:none}
 
-/* 비주얼 바로 아래 Partner 영역 여백 줄이기 */
-.hero + .main-sec{padding:32px 0 48px}
-.hero + .main-sec .main-head{margin-bottom:16px}
+/* 비주얼 바로 아래 Partner 영역 */
+.hero + .main-sec{padding:20px 0 40px}
+.hero + .main-sec .main-head{margin-bottom:12px}
+.hero + .main-sec .main-head h2{font-size:22px}
 
 @media (max-width:760px){
-  .hero{padding:40px 0 36px}
-  .hero h1{font-size:28px}
-  .hero + .main-sec{padding:24px 0 36px}
+  .hero{padding:28px 0 24px}
+  .hero h1{font-size:24px}
+  .hero + .main-sec{padding:16px 0 32px}
 }
