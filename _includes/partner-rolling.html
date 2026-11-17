@@ -1,0 +1,24 @@
+{% comment %}
+  협력사 로고 롤링
+  사용: {% include partner-rolling.html %}
+  목록은 _data/partners.yml 에서 관리
+{% endcomment %}
+{% assign rows = "seoul,central" | split: "," %}
+<div class="rolling" aria-label="협력업체">
+  {% for key in rows %}
+  {% assign list = site.data.partners[key] %}
+  <div class="rolling-row{% if forloop.index == 2 %} reverse{% endif %}">
+    <div class="rolling-track">
+      {% for loop in (1..2) %}
+      <ul class="rolling-list"{% if loop == 2 %} aria-hidden="true"{% endif %}>
+        {% for p in list %}
+        <li class="rolling-item">
+          {% if p.logo != "" %}<img src="{{ '/images/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }}" loading="lazy">{% else %}<span>{{ p.name }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
