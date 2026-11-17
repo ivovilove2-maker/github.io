@@ -1,5 +1,13 @@
 // 모바일 메뉴 열기/닫기
 (function () {
+  // 메인: 스크롤하면 헤더 배경 생기기
+  var hd = document.querySelector('.hd');
+  if (hd && document.body.classList.contains('is-home')) {
+    var onScroll = function () { hd.classList.toggle('scrolled', window.scrollY > 40); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   var btn = document.getElementById('menuBtn');
   var gnb = document.getElementById('gnb');
   if (btn && gnb) {
