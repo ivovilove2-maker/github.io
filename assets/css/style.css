@@ -509,3 +509,10 @@ img{max-width:100%;display:block}
 @media (prefers-reduced-motion: reduce){
   .pz-track, .pz-page li{ transition:none; }
 }
+
+/* 빈 칸: 자리만 잡고 조용하게 */
+.pz-page li.pz-empty{
+  background:transparent;
+  border:1px dashed var(--pz-line);
+}
+.pz-page li.pz-empty:hover{ border-color:var(--pz-line); background:transparent; }
