@@ -275,7 +275,7 @@ img{max-width:100%;display:block}
   .inq-form,.post,.biz article{padding:24px}
   .hero{padding:100px 0 72px;background:
     linear-gradient(rgba(15,25,45,.55),rgba(15,25,45,.55)),
-    url('../../images/hero.jpg') center/cover no-repeat,#1F2F4D}
+    url('../../images/hero.jpg') center/cover no-repeat,#8FB4D9}
   .hero h1{font-size:32px}
   .hero .lead{font-size:15px}
   .hero::before,.hero::after{display:none}
