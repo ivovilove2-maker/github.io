@@ -144,11 +144,20 @@
         var page = document.createElement('ul');
         page.className = 'pz-page';
         page.style.setProperty('--cols', L.cols);
-        logos.slice(p * per, p * per + per).forEach(function (lg, k) {
+        var items = logos.slice(p * per, p * per + per);
+        items.forEach(function (lg, k) {
           var li = lg.cloneNode(true);
           li.style.transitionDelay = (k * 0.06) + 's';
           page.appendChild(li);
         });
+        // 로고가 모자라도 칸 수는 항상 고정: 빈 박스로 채움
+        for (var e = items.length; e < per; e++) {
+          var empty = document.createElement('li');
+          empty.className = 'pz-empty';
+          empty.setAttribute('aria-hidden', 'true');
+          empty.style.transitionDelay = (e * 0.06) + 's';
+          page.appendChild(empty);
+        }
         track.appendChild(page);
 
         var dot = document.createElement('button');
