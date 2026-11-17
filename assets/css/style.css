@@ -500,7 +500,7 @@ img{max-width:100%;display:block}
 .pz:not(.is-ready) .pz-ctrl, .pz:not(.is-ready) .pz-tabs{ display:none; }
 
 @media (max-width:1024px){
-  .pz-inner{ grid-template-columns:1fr; }
+  .pz-inner{ grid-template-columns:minmax(0, 1fr); }
   .pz-title br, .pz-desc br{ display:none; }
 }
 @media (max-width:760px){

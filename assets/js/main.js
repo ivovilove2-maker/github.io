@@ -278,11 +278,15 @@
 
     // 화면에 보일 때만 자동 넘김
     if ('IntersectionObserver' in window) {
+      // 섹션 전체가 아니라 로고 프레임이 보이는지로 판단 (모바일은 섹션이 길어서)
       new IntersectionObserver(function (entries) {
         visible = entries[0].isIntersecting;
         sec.classList.toggle('is-visible', visible);
-        if (visible) { countUp(); go(cur); }
-      }, { threshold: 0.35 }).observe(sec);
+        if (visible) go(cur);
+      }, { threshold: 0.3 }).observe(frame);
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) countUp();
+      }, { threshold: 0.5 }).observe(sec.querySelector('.pz-stats') || sec);
     } else { visible = true; sec.classList.add('is-visible'); go(cur); }
 
     var t;
