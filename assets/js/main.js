@@ -89,102 +89,121 @@
     document.documentElement.style.setProperty('--after', (i * 0.055 + 0.6).toFixed(2) + 's');
   })();
 
-  // ─────────────────────────────────────────────
-  // 파트너존: 한 화면 가득 로고가 흐르는 벽
+    // ─────────────────────────────────────────────
+  // 파트너존: 좌측 설명 + 우측 페이지 슬라이드
   // ─────────────────────────────────────────────
   (function () {
     var sec = document.getElementById('partners');
     if (!sec) return;
-    var wall = sec.querySelector('.pz-wall');
+    var track = sec.querySelector('.pz-track');
+    var dotsBox = sec.querySelector('.pz-dots');
+    var numBox = sec.querySelector('.pz-num');
+    var frame = sec.querySelector('.pz-frame');
     var logos = Array.from(sec.querySelectorAll('.pz-source li'));
-    if (!wall || !logos.length) return;
+    if (!track || !logos.length) return;
 
-    var SPEED = 35;        // 흐르는 속도 (초당 px). 클수록 빠름
-    var MIN_PER_ROW = 4;   // 한 줄 최소 로고 수
-    var seen = false;
+    var DELAY = 3000;     // 자동 넘김 간격 (ms)
+    var cur = 0, pages = 1, per = 0, timer = null, visible = false;
 
-        // 로고 이미지가 없으면 alt에 적힌 회사명으로 대신 표시
-    var rebuildT;
+    // 이미지가 없으면 alt의 회사명으로 대체
     logos.forEach(function (li) {
       var img = li.querySelector('img');
       if (!img) return;
       function fallback() {
+        if (!img.parentNode) return;
         var s = document.createElement('span');
         s.textContent = img.alt;
-        if (img.parentNode) li.replaceChild(s, img);
-        clearTimeout(rebuildT);
-        rebuildT = setTimeout(build, 100);
+        li.replaceChild(s, img);
+        track.querySelectorAll('img').forEach(function (c) {
+          if (c.getAttribute('src') === img.getAttribute('src')) {
+            var t = document.createElement('span'); t.textContent = img.alt; c.replaceWith(t);
+          }
+        });
       }
       if (img.complete && img.naturalWidth === 0) fallback();
       else img.addEventListener('error', fallback);
     });
 
+    function layout() {
+      var w = window.innerWidth;
+      if (w <= 640) return { cols: 2, per: 6 };
+      if (w <= 1024) return { cols: 3, per: 6 };
+      return { cols: 4, per: 8 };
+    }
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
     function build() {
-      wall.innerHTML = '';
+      var L = layout();
+      if (L.per === per) return;
+      per = L.per;
+      pages = Math.ceil(logos.length / per);
+      track.innerHTML = '';
+      dotsBox.innerHTML = '';
 
-      // 로고 박스 크기 재기
-      var probe = document.createElement('ul');
-      probe.className = 'pz-row';
-      probe.appendChild(logos[0].cloneNode(true));
-      wall.appendChild(probe);
-      var li = probe.firstChild;
-      var h = li.offsetHeight;
-      var w = li.offsetWidth + parseFloat(getComputedStyle(li).marginRight);
-      var gap = parseFloat(getComputedStyle(wall).rowGap) || 12;
-      wall.innerHTML = '';
+      for (var p = 0; p < pages; p++) {
+        var page = document.createElement('ul');
+        page.className = 'pz-page';
+        page.style.setProperty('--cols', L.cols);
+        logos.slice(p * per, p * per + per).forEach(function (lg, k) {
+          var li = lg.cloneNode(true);
+          li.style.transitionDelay = (k * 0.06) + 's';
+          page.appendChild(li);
+        });
+        track.appendChild(page);
 
-      // 화면 높이에 맞는 줄 수
-      var fit = Math.max(1, Math.floor((wall.clientHeight + gap) / (h + gap)));
-      var rows = Math.max(1, Math.min(fit, Math.ceil(logos.length / MIN_PER_ROW)));
-
-      // 로고를 줄마다 골고루 나누기
-      var buckets = [];
-      for (var r = 0; r < rows; r++) buckets.push([]);
-      logos.forEach(function (lg, n) { buckets[n % rows].push(lg); });
-
-      buckets.forEach(function (bucket, r) {
-        var row = document.createElement('ul');
-        row.className = 'pz-row' + (r % 2 ? ' rev' : '');
-
-        // 화면 폭보다 길게 반복 → 한 번 더 복제해서 끊김 없이 순환
-        var set = [];
-        while (set.length * w < window.innerWidth + w) set = set.concat(bucket);
-        set.concat(set).forEach(function (lg) { row.appendChild(lg.cloneNode(true)); });
-
-        row.style.setProperty('--dur', (set.length * w / SPEED).toFixed(1) + 's');
-        row.style.transitionDelay = (0.3 + r * 0.12) + 's';
-        wall.appendChild(row);
-      });
-
-      if (seen) reveal();
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', (p + 1) + '페이지');
+        (function (n) { dot.addEventListener('click', function () { go(n); restart(); }); })(p);
+        dotsBox.appendChild(dot);
+      }
+      var single = pages <= 1;
+      sec.querySelector('.pz-ctrl').style.visibility = single ? 'hidden' : '';
+      dotsBox.style.display = single ? 'none' : '';
+      go(Math.min(cur, pages - 1));
     }
 
-    function reveal() {
-      sec.querySelectorAll('.pz-up, .pz-row').forEach(function (el) { el.classList.add('pz-in'); });
+    function go(n) {
+      cur = (n + pages) % pages;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      Array.from(track.children).forEach(function (pg, j) { pg.classList.toggle('on', j === cur && visible); });
+      Array.from(dotsBox.children).forEach(function (d, j) { d.classList.toggle('on', j === cur); });
+      numBox.innerHTML = '<em>' + pad(cur + 1) + '</em> / ' + pad(pages);
     }
 
-    sec.querySelectorAll('.pz-up').forEach(function (el, n) { el.style.transitionDelay = (n * 0.12) + 's'; });
+    function start() { stop(); if (pages > 1) timer = setInterval(function () { go(cur + 1); }, DELAY); }
+    function stop() { clearInterval(timer); timer = null; }
+    function restart() { if (visible) start(); }
 
-    build();
+    sec.querySelector('.pz-prev').addEventListener('click', function () { go(cur - 1); restart(); });
+    sec.querySelector('.pz-next').addEventListener('click', function () { go(cur + 1); restart(); });
 
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { seen = true; reveal(); io.disconnect(); }
-      }, { threshold: 0.25 });
-      io.observe(sec);
-    } else { seen = true; reveal(); }
+    // 마우스 올리면 멈춤
+    frame.addEventListener('mouseenter', stop);
+    frame.addEventListener('mouseleave', restart);
 
-    var lastW = window.innerWidth, lastH = window.innerHeight, t;
-    window.addEventListener('resize', function () {
-      clearTimeout(t);
-      t = setTimeout(function () {
-        if (window.innerWidth === lastW && Math.abs(window.innerHeight - lastH) < 80) return;
-        lastW = window.innerWidth; lastH = window.innerHeight;
-        build();
-      }, 200);
+    // 모바일 스와이프
+    var sx = 0;
+    frame.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; stop(); }, { passive: true });
+    frame.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+      restart();
     });
 
-    // 로고 이미지가 늦게 로드돼도 크기 다시 맞추기
-    window.addEventListener('load', build);
+    sec.classList.add('is-ready');
+    build();
+
+    // 화면에 보일 때만 자동 넘김
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        go(cur);
+        visible ? start() : stop();
+      }, { threshold: 0.3 }).observe(sec);
+    } else { visible = true; go(cur); start(); }
+
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(build, 200); });
   })();
 })();
