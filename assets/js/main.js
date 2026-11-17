@@ -36,18 +36,23 @@
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
-// 메인 제목: 단어 바뀌기
-  var el = document.querySelector('.rotator');
-  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var words = el.dataset.words.split(','), i = 0;
-  setInterval(function () {
-    el.classList.remove('in');
-    el.classList.add('out');
-    setTimeout(function () {
-      i = (i + 1) % words.length;
-      el.textContent = words[i];
-      el.classList.remove('out');
-      el.classList.add('in');
-    }, 350);
-  }, 2600);
+
+// 메인 제목: 한 글자씩 나누어 시간차 등장
+(function () {
+  var el = document.querySelector('[data-split]');
+  if (!el) return;
+  var i = 0, html = '';
+  el.innerHTML.split(/(<br\s*\/?>)/i).forEach(function (part) {
+    if (/^<br/i.test(part)) { html += '<br>'; return; }
+    part.split('').forEach(function (c) {
+      html += c === ' ' ? '<span class="sp"> </span>'
+                        : '<span class="ch" style="--i:' + (i++) + '">' + c + '</span>';
+    });
+  });
+  el.innerHTML = html;
+  el.setAttribute('aria-label', el.textContent);
+  // 설명·버튼은 마지막 글자가 나온 뒤에
+  document.documentElement.style.setProperty('--after', (i * 0.055 + 0.6).toFixed(2) + 's');
+})();
+
 })();
