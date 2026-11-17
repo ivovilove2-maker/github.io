@@ -16,26 +16,10 @@ description: "㈜에스이에이치인터내셔널(SEHI) - 근로자 파견, 도
   </div>
 
   <section class="main-sec">
-    <div class="wrap main-grid">
-      <div>
-        <div class="main-head"><h2>Partner</h2><a href="partner.html">더보기 +</a></div>
-        <h3 class="mini">서울본사 Partner</h3>
-        <ul class="chips">
-          <li>아비꼬</li><li>HOLLYS COFFEE</li><li>공차</li><li>바나프레소</li><li>동국제약</li><li>KB손해보험</li><li>smeg</li><li>bhc</li><li>TONYMOLY</li><li>KCI</li><li>8seconds</li>
-        </ul>
-        <h3 class="mini">중부지점 Partner</h3>
-        <ul class="chips">
-          <li>아웃백 스테이크하우스</li><li>차병원</li><li>Dentium</li><li>JKC</li><li>TEXONE</li><li>WITHUS</li>
-        </ul>
-      </div>
-      <aside class="contact-card">
-        <h2>문의처</h2>
-        <dl>
-          <dt>서울본사</dt><dd><a href="tel:028660401">02-866-0401</a><br><a href="tel:07042361916">070-4236-1916</a></dd>
-          <dt>중부지점</dt><dd><a href="tel:01022108219">010-2210-8219</a><br><a href="tel:07042294747">070-4229-4747</a></dd>
-        </dl>
-      </aside>
+    <div class="wrap">
+      <div class="main-head"><h2>Partner</h2><a href="partner.html">더보기 +</a></div>
     </div>
+    {% include partner-rolling.html %}
   </section>
 
   <section class="main-sec alt">
@@ -47,6 +31,7 @@ description: "㈜에스이에이치인터내셔널(SEHI) - 근로자 파견, 도
         <a href="headhunting.html"><strong>채용대행 · 헤드헌팅</strong><span>전문인력과 관리자급 인재 채용</span></a>
         <a href="payroll.html"><strong>급여대행</strong><span>급여 · 4대보험 · 연말정산 · 신고업무</span></a>
       </div>
+      {% include contact-cta.html %}
     </div>
   </section>
 
