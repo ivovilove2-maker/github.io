@@ -64,7 +64,7 @@ img{max-width:100%;display:block}
     linear-gradient(90deg,rgba(15,25,45,.70) 0%,rgba(15,25,45,.35) 50%,rgba(15,25,45,0) 100%),
     linear-gradient(180deg,rgba(15,25,45,.45) 0%,rgba(15,25,45,0) 22%),
     url('../../images/hero.jpg') center/cover no-repeat,
-    #1F2F4D;
+    #8FB4D9;
 }
 .hero .wrap{width:100%;position:relative;z-index:1}
 .hero h1{margin:0 0 18px;font-size:56px;line-height:1.25;font-weight:800;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.3)}
