@@ -36,4 +36,18 @@
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
+// 메인 제목: 단어 바뀌기
+  var el = document.querySelector('.rotator');
+  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var words = el.dataset.words.split(','), i = 0;
+  setInterval(function () {
+    el.classList.remove('in');
+    el.classList.add('out');
+    setTimeout(function () {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove('out');
+      el.classList.add('in');
+    }, 350);
+  }, 2600);
 })();
