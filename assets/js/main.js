@@ -90,6 +90,57 @@
   })();
 
   // ─────────────────────────────────────────────
+  // 메인 섹션 단위 스크롤 (PC만): 휠 한 번 / 키 한 번에 한 화면씩
+  // ─────────────────────────────────────────────
+  (function () {
+    if (!document.body.classList.contains('is-home')) return;
+    var mq = window.matchMedia('(min-width:761px) and (min-height:600px)');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var busy = false, startedAt = 0, quietT;
+
+    function stops() {
+      var list = Array.from(document.querySelectorAll('.hero, #partners, main > .main-sec.alt'))
+        .map(function (el) { return Math.round(el.getBoundingClientRect().top + window.scrollY); });
+      list.push(document.documentElement.scrollHeight - window.innerHeight);   // 맨 아래(공지·푸터)
+      return list;
+    }
+    function move(dir) {
+      var y = window.scrollY, s = stops(), next;
+      if (dir > 0) next = s.filter(function (v) { return v > y + 5; })[0];
+      else next = s.filter(function (v) { return v < y - 5; }).pop();
+      if (next === undefined) return;
+      busy = true; startedAt = Date.now();
+      window.scrollTo({ top: next, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    // 터치패드 관성 스크롤이 이어지는 동안은 한 번만 이동
+    function release() {
+      clearTimeout(quietT);
+      quietT = setTimeout(function () {
+        if (Date.now() - startedAt < 800) return release();
+        busy = false;
+      }, 180);
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (!mq.matches || e.ctrlKey || Math.abs(e.deltaY) < 2) return;
+      e.preventDefault();
+      if (!busy) move(e.deltaY > 0 ? 1 : -1);
+      release();
+    }, { passive: false });
+
+    window.addEventListener('keydown', function (e) {
+      if (!mq.matches || /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+      var k = e.key, d = 0;
+      if (k === 'PageDown' || k === 'ArrowDown' || (k === ' ' && !e.shiftKey)) d = 1;
+      if (k === 'PageUp' || k === 'ArrowUp' || (k === ' ' && e.shiftKey)) d = -1;
+      if (!d) return;
+      e.preventDefault();
+      if (!busy) move(d);
+      release();
+    });
+  })();
+
+  // ─────────────────────────────────────────────
   // 파트너존: 지역 탭 + 페이지 슬라이드 + 진행 막대 + 숫자 카운트
   // ─────────────────────────────────────────────
   (function () {

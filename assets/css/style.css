@@ -521,12 +521,8 @@ img{max-width:100%;display:block}
 /* =========================================================
    메인 화면만: 스크롤하면 섹션 단위로 이동 (PC)
    ========================================================= */
+/* 이동 자체는 main.js 의 '메인 섹션 단위 스크롤'에서 처리 */
 @media (min-width:761px) and (min-height:600px){
-  html:has(body.is-home){ scroll-snap-type:y mandatory; }
-  .is-home .hero,
-  .is-home .pz,
-  .is-home .main-sec.alt{ scroll-snap-align:start; scroll-snap-stop:always; }
-  .is-home .ft{ scroll-snap-align:end; }
   /* Business 영역도 한 화면 가득 */
   .is-home .main-sec.alt{
     min-height:100vh; min-height:100svh;
