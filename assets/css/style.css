@@ -360,7 +360,7 @@ img{max-width:100%;display:block}
   min-height:100vh; min-height:100svh;    /* 한 화면 꽉 채우기 */
   box-sizing:border-box;
   display:flex; flex-direction:column;
-  padding:clamp(56px, 9vh, 100px) 0 clamp(40px, 6vh, 72px);
+  padding:calc(var(--hd-h, 0px) + clamp(32px, 6vh, 72px)) 0 clamp(40px, 6vh, 72px);
   background:var(--pz-bg);
   overflow:hidden;
   font-family:'Pretendard Variable', Pretendard, -apple-system, 'Malgun Gothic', sans-serif;
