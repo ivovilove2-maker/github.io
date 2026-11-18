@@ -613,20 +613,18 @@ img{max-width:100%;display:block}
 .sub-body{--ab-ink:#14213D;--ab-accent:#E8732A;--ab-mute:#5B6475;--ab-line:#DDE1E8}
 .ab-ey{margin:0 0 12px;font-size:12px;letter-spacing:.16em;color:var(--ab-accent);font-weight:600}
 
-/* 인사말: 네이비 판 + 편지 */
-.gr-hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:#fff;border:1px solid var(--ab-line)}
-.gr-panel{background:var(--ab-ink);color:#fff;padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:380px}
-.gr-panel .ab-ey{color:#FF9A52}
-.gr-panel h2{margin:0;font-size:32px;line-height:1.4;font-weight:700;letter-spacing:-.02em}
-.gr-panel-en{margin:0;font-size:14px;color:#AAB3C5;line-height:1.6}
-.gr-letter{padding:48px 44px;color:var(--ab-mute);font-size:16px;line-height:1.9}
-.gr-letter p{margin:0 0 14px}
-.gr-letter .gr-hello{color:var(--ab-ink);font-size:20px;font-weight:700;margin-bottom:20px}
-.gr-letter .gr-sign{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--ab-line);font-size:15px}
-.gr-sign b{color:var(--ab-ink);font-size:20px;letter-spacing:.3em;margin-left:8px}
+/* 인사말: 네이비 타이틀 띠 */
+.gr-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin:80px 0 0;padding:48px 44px;background:var(--ab-ink);color:#fff}
+.gr-hero .ab-ey{color:#FF9A52}
+.gr-hero h2{margin:0;font-size:34px;line-height:1.4;font-weight:700;letter-spacing:-.02em}
+.gr-hero-en{margin:0;font-size:14px;color:#AAB3C5;line-height:1.6;text-align:right}
+
+/* 인사말: 대표 서명 */
+.gr-sign{margin:48px 0 0;padding-top:24px;border-top:1px solid var(--ab-line);text-align:right;font-size:15px;color:var(--ab-mute)}
+.gr-sign b{color:var(--ab-ink);font-size:22px;letter-spacing:.3em;margin-left:10px}
 
 /* 인사말: 키워드 3단 */
-.gr-keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:72px 0 0;border-top:2px solid var(--ab-ink)}
+.gr-keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:56px 0 0;border-top:2px solid var(--ab-ink)}
 .gr-keys article{padding:32px 28px 8px;border-left:1px solid var(--ab-line)}
 .gr-keys article:first-child{border-left:0;padding-left:0}
 .gr-keys article:last-child{padding-right:0}
@@ -636,7 +634,7 @@ img{max-width:100%;display:block}
 .gr-keys article>p:last-child{margin:0;font-size:15px;line-height:1.85;color:var(--ab-mute)}
 
 /* 인사말: SEHI 이름 풀이 */
-.gr-name{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;margin:80px 0 0;padding-top:56px;border-top:1px solid var(--ab-line)}
+.gr-name{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;margin:8px 0 0}
 .gr-name-head h2{margin:0 0 14px;font-size:28px;line-height:1.4;color:var(--ab-ink)}
 .gr-name-head>p:last-child{margin:0;color:var(--ab-mute);font-size:15px}
 .gr-sehi{margin:0;padding:0;list-style:none}
@@ -676,10 +674,9 @@ img{max-width:100%;display:block}
 .ht ul li b{display:block;font-size:13px;color:var(--ab-accent);font-weight:600}
 
 @media (max-width:960px){
-  .gr-hero,.gr-name{grid-template-columns:minmax(0,1fr)}
-  .gr-panel{min-height:0;padding:36px 28px}
-  .gr-letter{padding:36px 28px}
-  .gr-name{gap:28px}
+  .gr-name{grid-template-columns:minmax(0,1fr);gap:28px}
+  .gr-hero{padding:36px 28px}
+  .gr-hero-en{text-align:left}
   .gr-keys,.og-cols{grid-template-columns:minmax(0,1fr)}
   .gr-keys article,.og-cols section{border-left:0;padding:28px 0 4px;border-bottom:1px solid var(--ab-line)}
   .gr-keys article:first-child,.og-cols section:first-child{padding-left:0}
@@ -692,11 +689,10 @@ img{max-width:100%;display:block}
   .ht-year{margin-bottom:10px;font-size:32px}
 }
 @media (max-width:760px){
-  .gr-panel h2{font-size:26px}
-  .gr-letter{font-size:15px}
-  .gr-keys{margin-top:48px}
+  .gr-hero{margin-top:56px}
+  .gr-hero h2{font-size:26px}
+  .gr-keys{margin-top:40px}
   .gr-key{font-size:32px}
-  .gr-name{margin-top:56px;padding-top:40px}
   .gr-name-head h2{font-size:24px}
   .gr-sehi strong{font-size:30px}
   .gr-sehi li>span{font-size:13px}
