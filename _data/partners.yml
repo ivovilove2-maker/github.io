@@ -4,18 +4,18 @@ seoul:
   - { name: "아비꼬", logo: "" }
   - { name: "HOLLYS COFFEE", logo: "hollys-coffee.png" }
   - { name: "공차", logo: "" }
-  - { name: "바나프레소", logo: "" }
+  - { name: "바나프레소", logo: "bana-coffee.svg" }
   - { name: "동국제약", logo: "dongkook.png" }
   - { name: "KB손해보험", logo: "kb-insurance.png" }
-  - { name: "smeg", logo: "" }
+  - { name: "smeg", logo: "smeg.svg" }
   - { name: "bhc", logo: "bhc.svg" }
-  - { name: "TONYMOLY", logo: "" }
+  - { name: "TONYMOLY", logo: "tonymoly.png" }
   - { name: "KCI", logo: "" }
   - { name: "8seconds", logo: "" }
 central:
   - { name: "아웃백 스테이크하우스", logo: "outback.png" }
   - { name: "차병원", logo: "" }
-  - { name: "Dentium", logo: "" }
+  - { name: "Dentium", logo: "dentium.png" }
   - { name: "JKC", logo: "" }
   - { name: "TEXONE", logo: "" }
   - { name: "WITHUS", logo: "" }
