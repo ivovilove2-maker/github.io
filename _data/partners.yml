@@ -1,7 +1,7 @@
 # 메인 롤링 협력사 로고
 # logo: images/partners/ 폴더의 파일명 (없으면 회사명 글자로 표시됨)
 seoul:
-  - { name: "아비꼬", logo: "" }
+  - { name: "아비꼬", logo: "abiko.png" }
   - { name: "HOLLYS COFFEE", logo: "hollys-coffee.png" }
   - { name: "공차", logo: "" }
   - { name: "바나프레소", logo: "bana-coffee.svg" }
@@ -11,7 +11,7 @@ seoul:
   - { name: "bhc", logo: "bhc.svg" }
   - { name: "TONYMOLY", logo: "tonymoly.png" }
   - { name: "KCI", logo: "" }
-  - { name: "8seconds", logo: "" }
+  - { name: "8seconds", logo: "8seconds.png" }
 central:
   - { name: "아웃백 스테이크하우스", logo: "outback.png" }
   - { name: "차병원", logo: "" }
