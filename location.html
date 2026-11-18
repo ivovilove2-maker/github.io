@@ -11,15 +11,16 @@ description: "㈜에스이에이치인터내셔널 찾아오시는길 - 서울�
     </div>
 
     <div class="lc-info">
-      <div>
-        <p class="ab-ey">ADDRESS</p>
-        <p class="lc-addr">에이스하이엔드타워 8차 4층 406호<small>서울특별시 금천구 가산디지털1로 84</small></p>
-      </div>
+      <p class="ab-ey">ADDRESS</p>
+      <p class="lc-addr">서울특별시 금천구 가산디지털1로 84, 에이스하이엔드타워 8차 4층 406호</p>
       <dl class="lc-contact">
-        <dt>TEL</dt><dd><a href="tel:028660401">02-866-0401</a></dd>
-        <dt>FAX</dt><dd>02-866-0402</dd>
-        <dt>E-MAIL</dt><dd><a href="mailto:sehi0401@daum.net">sehi0401@daum.net</a></dd>
+        <div><dt>TEL</dt><dd><a href="tel:028660401">02-866-0401</a></dd></div>
+        <div><dt>FAX</dt><dd>02-866-0402</dd></div>
+        <div><dt>E-MAIL</dt><dd><a href="mailto:sehi0401@daum.net">sehi0401@daum.net</a></dd></div>
       </dl>
+      <div class="lc-tel">
+{% for c in site.company.contacts %}        <p><b>{{ c.name }}</b>{% for ph in c.phones %}{% unless forloop.first %}<span>·</span>{% endunless %}<a href="tel:{{ ph | remove: '-' }}">{{ ph }}</a>{% endfor %}</p>
+{% endfor %}      </div>
     </div>
 
     <div class="lc-ways">
@@ -42,7 +43,3 @@ description: "㈜에스이에이치인터내셔널 찾아오시는길 - 서울�
         </dl>
       </section>
     </div>
-
-    <div class="lc-tel">
-{% for c in site.company.contacts %}      <p><b>{{ c.name }}</b>{% for ph in c.phones %}{% unless forloop.first %}<span>·</span>{% endunless %}<a href="tel:{{ ph | remove: '-' }}">{{ ph }}</a>{% endfor %}</p>
-{% endfor %}    </div>

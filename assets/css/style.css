@@ -717,11 +717,11 @@ img{max-width:100%;display:block}
 .lc-links{display:flex;justify-content:flex-end;gap:24px;margin:12px 0 0;font-size:14px}
 .lc-links a{color:var(--ab-ink);font-weight:600;border-bottom:1px solid var(--ab-ink);padding-bottom:2px}
 .lc-links a:hover{color:var(--ab-accent);border-color:var(--ab-accent)}
-.lc-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;margin:40px 0 0;padding:32px 0;border-top:2px solid var(--ab-ink);border-bottom:1px solid var(--ab-line)}
-.lc-addr{margin:0;font-size:24px;line-height:1.45;font-weight:700;color:var(--ab-ink);letter-spacing:-.01em}
-.lc-addr small{display:block;margin-top:6px;font-size:15px;font-weight:400;color:var(--ab-mute);letter-spacing:0}
-.lc-contact{margin:0;display:grid;grid-template-columns:auto auto;gap:6px 18px;font-size:15px;color:var(--ab-ink)}
-.lc-contact dt{color:#8A92A1;font-size:13px;letter-spacing:.08em;align-self:center}
+.lc-info{margin:40px 0 0;padding:32px 0;border-top:2px solid var(--ab-ink);border-bottom:1px solid var(--ab-line)}
+.lc-addr{margin:0 0 20px;font-size:24px;line-height:1.45;font-weight:700;color:var(--ab-ink);letter-spacing:-.01em}
+.lc-contact{margin:0;display:flex;flex-wrap:wrap;gap:8px 40px;font-size:16px;color:var(--ab-ink)}
+.lc-contact div{display:flex;align-items:baseline;gap:12px}
+.lc-contact dt{color:#8A92A1;font-size:13px;letter-spacing:.08em}
 .lc-contact dd{margin:0}
 .lc-contact a:hover{color:var(--ab-accent)}
 .lc-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -734,13 +734,12 @@ img{max-width:100%;display:block}
 .lc-ways dd:last-child{margin-bottom:0}
 .lc-ways dd b{color:var(--ab-ink)}
 .lc-ways dd p{margin:0 0 4px}
-.lc-tel{border-top:1px solid var(--ab-line);padding-top:28px;display:flex;flex-wrap:wrap;gap:12px 48px;font-size:15px;color:var(--ab-ink)}
+.lc-tel{margin:20px 0 0;padding-top:20px;border-top:1px solid var(--ab-line);display:flex;flex-wrap:wrap;gap:8px 48px;font-size:16px;color:var(--ab-ink)}
 .lc-tel p{margin:0}
 .lc-tel b{margin-right:12px}
 .lc-tel span{color:#B4BAC5;margin:0 6px}
 @media (max-width:960px){
   .lc-map{height:320px}
-  .lc-info{grid-template-columns:minmax(0,1fr)}
   .lc-ways{grid-template-columns:minmax(0,1fr)}
   .lc-ways section,.lc-ways section+section{padding:28px 0;border-left:0}
   .lc-ways section+section{border-top:1px solid var(--ab-line)}
