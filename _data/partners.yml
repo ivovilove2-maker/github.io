@@ -10,13 +10,13 @@ list:
   - { name: "공차", logo: "" }
   - { name: "바나프레소", logo: "bana-coffee.svg" }
   - { name: "아비꼬", logo: "abiko.png" }
-  - { name: "아티제", logo: "" }
+  - { name: "아티제", logo: "artisee.png" }
   - { name: "보나비", logo: "" }
   - { name: "삼청각", logo: "samcheonggak.png" }
   - { name: "수라선", logo: "" }
   - { name: "숙성시대", logo: "" }
   - { name: "성수면옥", logo: "" }
-  - { name: "에그드랍", logo: "" }
+  - { name: "에그드랍", logo: "eggdrop.svg" }
   - { name: "SFG", logo: "" }
   - { name: "우설화", logo: "" }
   - { name: "송도이동갈비", logo: "" }
@@ -30,8 +30,8 @@ list:
   - { name: "돈블랑", logo: "" }
   - { name: "비락", logo: "" }
   - { name: "쿠차라", logo: "" }
-  - { name: "바나플", logo: "" }
-  - { name: "오늘회", logo: "" }
+  - { name: "바나플", logo: "banaple.svg" }
+  - { name: "오늘회", logo: "onulhoi.png" }
   - { name: "상하농원", logo: "" }
   - { name: "지평주조", logo: "" }
   - { name: "파라다이스", logo: "paradise.png" }
@@ -48,7 +48,7 @@ list:
   - { name: "smeg", logo: "smeg.svg" }
   - { name: "마제스티", logo: "" }
   - { name: "DFD", logo: "" }
-  - { name: "그린나라", logo: "" }
+  - { name: "그린나라", logo: "grinnara.jpg" }
   # 기업 · IT · 제조 · 서비스
   - { name: "카카오모빌리티", logo: "kakaomobility.svg" }
   - { name: "타다", logo: "" }
@@ -60,19 +60,19 @@ list:
   - { name: "텔라이프", logo: "tellife.png" }
   - { name: "슈어소프트", logo: "suresoft.svg" }
   - { name: "이노그리드", logo: "innogrid.svg" }
-  - { name: "텐마인즈", logo: "" }
-  - { name: "디쉐어", logo: "" }
+  - { name: "텐마인즈", logo: "10minds.png" }
+  - { name: "디쉐어", logo: "dshare.png" }
   - { name: "에이치에이디", logo: "" }
-  - { name: "몬스터유니온", logo: "" }
-  - { name: "스마트스코어", logo: "" }
+  - { name: "몬스터유니온", logo: "monsterunion.jpg" }
+  - { name: "스마트스코어", logo: "smartscore.svg" }
   - { name: "포블게이트", logo: "" }
   - { name: "DQ", logo: "" }
   - { name: "비즈컨설팅", logo: "" }
-  - { name: "유경제어", logo: "" }
-  - { name: "일신정밀", logo: "" }
+  - { name: "유경제어", logo: "yookyung.png" }
+  - { name: "일신정밀", logo: "ilshin.jpg" }
   - { name: "삼영S&C", logo: "" }
   - { name: "삼코", logo: "" }
-  - { name: "코스텔", logo: "" }
+  - { name: "코스텔", logo: "costel.svg" }
   - { name: "HUIMEI", logo: "" }
   - { name: "티앤엘", logo: "" }
   - { name: "태영", logo: "" }
@@ -94,4 +94,4 @@ list:
   - { name: "차바이오텍", logo: "chabiotech.png" }
   - { name: "Dentium", logo: "dentium.png" }
   - { name: "로킷헬스케어", logo: "rokit.svg" }
-  - { name: "GFC생명과학", logo: "" }
+  - { name: "GFC생명과학", logo: "gfc.png" }
