@@ -5,10 +5,10 @@ seoul:
   - { name: "HOLLYS COFFEE", logo: "hollys-coffee.png" }
   - { name: "공차", logo: "" }
   - { name: "바나프레소", logo: "" }
-  - { name: "동국제약", logo: "" }
-  - { name: "KB손해보험", logo: "" }
+  - { name: "동국제약", logo: "dongkook.png" }
+  - { name: "KB손해보험", logo: "kb-insurance.png" }
   - { name: "smeg", logo: "" }
-  - { name: "bhc", logo: "" }
+  - { name: "bhc", logo: "bhc.svg" }
   - { name: "TONYMOLY", logo: "" }
   - { name: "KCI", logo: "" }
   - { name: "8seconds", logo: "" }
