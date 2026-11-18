@@ -13,6 +13,10 @@ company:
   fax: "02-866-0402"
   email: "sehi0401@daum.net"
   inquiry_email: "ekra2@naver.com"   # 고객문의 양식이 도착하는 메일 (FormSubmit)
+  # EmailJS (회사 전용 디자인 메일). 세 값을 모두 넣으면 EmailJS로, 비어 있으면 FormSubmit으로 보냄
+  emailjs_public_key: ""
+  emailjs_service_id: ""
+  emailjs_template_id: ""
   blog: "https://blog.naver.com/sehi0403"
   contacts:
     - { name: "서울본사", phones: ["02-866-0401", "070-4236-1916"] }

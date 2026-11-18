@@ -39,12 +39,33 @@
       var done = document.getElementById('inqDone');
       if (done) done.hidden = false;
     }
-    form.addEventListener('submit', function () {
+    var btn = form.querySelector('button[type=submit]');
+    var err = document.getElementById('inqErr');
+    var ejs = form.dataset;
+    form.addEventListener('submit', function (e) {
       var f = form.elements;
       f._next.value = here + '?sent=1#inqDone';
       f._subject.value = '[홈페이지 고객문의][' + f['문의구분'].value + '] ' + f['회사명'].value;
-      var btn = form.querySelector('button[type=submit]');
       if (btn) { btn.disabled = true; btn.textContent = '보내는 중…'; }
+      if (err) err.hidden = true;
+      // EmailJS 값이 설정돼 있으면 회사 전용 디자인 메일로 보냄 (없으면 FormSubmit으로 그대로 전송)
+      if (!(ejs.ejsKey && ejs.ejsService && ejs.ejsTemplate && window.emailjs)) return;
+      e.preventDefault();
+      if (f._honey.value) return;
+      window.emailjs.send(ejs.ejsService, ejs.ejsTemplate, {
+        company: f['회사명'].value,
+        name: f['담당자명'].value,
+        tel: f['연락처'].value,
+        email: f.email.value || '-',
+        type: f['문의구분'].value,
+        message: f['문의내용'].value,
+        sent_at: new Date().toLocaleString('ko-KR')
+      }, { publicKey: ejs.ejsKey }).then(function () {
+        location.href = f._next.value;
+      }, function () {
+        if (btn) { btn.disabled = false; btn.textContent = '문의 보내기 →'; }
+        if (err) err.hidden = false;
+      });
     });
   }
 

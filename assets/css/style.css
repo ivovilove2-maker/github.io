@@ -885,3 +885,5 @@ img{max-width:100%;display:block}
 .inq-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .inq-done{margin:0 0 24px;padding:16px 0 16px 16px;border-left:3px solid var(--brand);background:var(--brand-softer);color:var(--ab-ink);font-weight:600}
 .inq-done[hidden]{display:none}
+.inq-err{margin:12px 0 0;color:#C8372D;font-size:14px}
+.inq-err[hidden]{display:none}
