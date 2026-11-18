@@ -283,17 +283,18 @@ img{max-width:100%;display:block}
   .is-home .hd .gnb.open>li>a{color:var(--ink)}
 }
 
-/* ===== 로고 (심볼 C: 이어진 리본) ===== */
-.logo{display:inline-flex;flex-direction:column;gap:3px;line-height:1}
-.logo-row{display:flex;align-items:flex-end;gap:8px}
-.logo-sym{width:34px;height:34px;flex-shrink:0}
-.logo-word{font-family:'Outfit',sans-serif;font-weight:800;font-size:32px;line-height:.85;letter-spacing:-.02em;color:var(--ink)}
-.logo-i{position:relative;display:inline-block}
-.logo-i::after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand)}
+/* ===== 로고 (다이아몬드 심볼 + SEHI 글자) ===== */
+.logo{display:inline-flex;align-items:center;gap:10px;line-height:1}
+.logo-sym{width:40px;height:40px;flex-shrink:0;display:block}
+.logo-text{display:flex;flex-direction:column;gap:5px}
+/* SEHI 글자: 원본 로고에서 뽑은 모양을 마스크로 써서 글자색(color)으로 칠함 */
+.logo-word{display:block;width:84px;height:27px;color:var(--ink);background:currentColor;
+  -webkit-mask:url('../../images/sehi-word.png') left center/contain no-repeat;
+          mask:url('../../images/sehi-word.png') left center/contain no-repeat}
 .logo-tag{font-family:'Outfit',sans-serif;font-weight:500;font-size:9px;letter-spacing:.02em;color:var(--sub);white-space:nowrap}
 @media (max-width:760px){
-  .logo-sym{width:28px;height:28px}
-  .logo-word{font-size:27px}
+  .logo-sym{width:34px;height:34px}
+  .logo-word{width:72px;height:23px}
   .logo-tag{font-size:8px}
 }
 
