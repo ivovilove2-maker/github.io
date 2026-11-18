@@ -12,6 +12,7 @@ company:
   tel: "02-866-0401"
   fax: "02-866-0402"
   email: "sehi0401@daum.net"
+  inquiry_email: "ekra2@naver.com"   # 고객문의 양식이 도착하는 메일 (FormSubmit)
   blog: "https://blog.naver.com/sehi0403"
   contacts:
     - { name: "서울본사", phones: ["02-866-0401", "070-4236-1916"] }
