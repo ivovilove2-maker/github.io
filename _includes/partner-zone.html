@@ -4,10 +4,8 @@
   파트너 목록: _data/partners.yml  /  채용 사례: _data/cases.yml
   logo 가 비어 있으면 회사명 글자로 표시됨
 {% endcomment %}
-{% assign seoul = site.data.partners.seoul %}
-{% assign central = site.data.partners.central %}
-{% assign total = seoul.size | plus: central.size %}
-{% assign regions = "seoul,central" | split: "," %}
+{% assign partners = site.data.partners.list %}
+{% assign total = partners.size %}
 <section class="pz" id="partners">
   <span class="pz-bgword" aria-hidden="true">PARTNERS</span>
 
@@ -22,12 +20,6 @@
         <div><dt>채용 진행 사례</dt><dd><b class="pz-count" data-to="{{ site.data.cases.size }}">{{ site.data.cases.size }}</b><small>건</small></dd></div>
         <div><dt>운영 거점</dt><dd><b class="pz-count" data-to="{{ site.company.contacts.size }}">{{ site.company.contacts.size }}</b><small>곳</small></dd></div>
       </dl>
-
-      <div class="pz-tabs" role="tablist" aria-label="지역별 파트너">
-        <button type="button" class="pz-tab on" role="tab" aria-selected="true" data-filter="all">전체 <span>{{ total }}</span></button>
-        <button type="button" class="pz-tab" role="tab" aria-selected="false" data-filter="seoul">서울본사 <span>{{ seoul.size }}</span></button>
-        <button type="button" class="pz-tab" role="tab" aria-selected="false" data-filter="central">중부지점 <span>{{ central.size }}</span></button>
-      </div>
 
       <a class="pz-link" href="{{ '/partner.html' | relative_url }}">협력업체 전체 보기
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -51,9 +43,13 @@
       </div>
 
       <ul class="pz-source" aria-label="협력업체">
-        {% for key in regions %}{% for p in site.data.partners[key] %}
-        <li data-region="{{ key }}">{% if p.logo and p.logo != "" %}<img src="{{ '/images/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }}">{% else %}<span>{{ p.name }}</span>{% endif %}</li>
-        {% endfor %}{% endfor %}
+        {% comment %} 로고가 있는 곳을 먼저, 글자만 있는 곳을 뒤에 {% endcomment %}
+        {% for p in partners %}{% if p.logo and p.logo != "" %}
+        <li><img src="{{ '/images/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }}"></li>
+        {% endif %}{% endfor %}
+        {% for p in partners %}{% unless p.logo and p.logo != "" %}
+        <li><span>{{ p.name }}</span></li>
+        {% endunless %}{% endfor %}
       </ul>
     </div>
 

@@ -604,3 +604,6 @@ img{max-width:100%;display:block}
   .bz-contact{ flex-direction:column; align-items:flex-start; }
   .bz-cta{ margin-left:0; }
 }
+/* 협력업체 페이지: 전체 파트너 한 칸으로 */
+.partners-all{grid-template-columns:1fr}
+.partners-all h2 small{font-size:14px;font-weight:600;color:var(--brand);margin-left:6px}

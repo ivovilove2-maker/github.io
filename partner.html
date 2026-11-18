@@ -5,18 +5,11 @@ group: "Partner"
 description: "㈜에스이에이치인터내셔널 협력업체 및 고객사 채용 진행 사례"
 ---
     <p class="page-lead">외식 · 유통 · 패션 · 제약 · 금융 등 다양한 업종의 고객사와 함께하고 있습니다.</p>
-    <div class="partners">
+    <div class="partners partners-all">
       <article>
-        <h2>서울본사 Partner</h2>
+        <h2>함께하는 파트너 <small>{{ site.data.partners.list.size }}곳</small></h2>
         <ul class="chips">
-          <li>아비꼬</li><li>HOLLYS COFFEE</li><li>공차</li><li>바나프레소</li><li>동국제약</li><li>KB손해보험</li>
-          <li>smeg</li><li>bhc</li><li>TONYMOLY</li><li>KCI</li><li>8seconds</li>
-        </ul>
-      </article>
-      <article>
-        <h2>중부지점 Partner</h2>
-        <ul class="chips">
-          <li>아웃백 스테이크하우스</li><li>차병원</li><li>Dentium</li><li>JKC</li><li>TEXONE</li><li>WITHUS</li>
+          {% for p in site.data.partners.list %}<li>{{ p.name }}</li>{% endfor %}
         </ul>
       </article>
     </div>

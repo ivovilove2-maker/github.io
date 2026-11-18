@@ -1,21 +1,97 @@
-# 메인 롤링 협력사 로고
-# logo: images/partners/ 폴더의 파일명 (없으면 회사명 글자로 표시됨)
-seoul:
-  - { name: "아비꼬", logo: "abiko.png" }
+# 협력사 목록 (메인 파트너존 · 협력업체 페이지에서 함께 사용)
+# logo: images/partners/ 폴더의 파일명 (비어 있으면 회사명 글자로 표시됨)
+# 순서대로 표시됩니다.
+list:
+  # 외식 · 식품
+  - { name: "아웃백 스테이크하우스", logo: "outback.png" }
+  - { name: "bhc", logo: "bhc.svg" }
+  - { name: "KFC", logo: "kfc.webp" }
   - { name: "HOLLYS COFFEE", logo: "hollys-coffee.png" }
   - { name: "공차", logo: "" }
   - { name: "바나프레소", logo: "bana-coffee.svg" }
-  - { name: "동국제약", logo: "dongkook.png" }
-  - { name: "KB손해보험", logo: "kb-insurance.png" }
-  - { name: "smeg", logo: "smeg.svg" }
-  - { name: "bhc", logo: "bhc.svg" }
-  - { name: "TONYMOLY", logo: "tonymoly.png" }
-  - { name: "KCI", logo: "" }
+  - { name: "아비꼬", logo: "abiko.png" }
+  - { name: "아티제", logo: "" }
+  - { name: "보나비", logo: "" }
+  - { name: "삼청각", logo: "samcheonggak.png" }
+  - { name: "수라선", logo: "" }
+  - { name: "숙성시대", logo: "" }
+  - { name: "성수면옥", logo: "" }
+  - { name: "에그드랍", logo: "" }
+  - { name: "SFG", logo: "" }
+  - { name: "우설화", logo: "" }
+  - { name: "송도이동갈비", logo: "" }
+  - { name: "청담본갈비", logo: "" }
+  - { name: "하인선생", logo: "" }
+  - { name: "긴자", logo: "" }
+  - { name: "소나무향기", logo: "" }
+  - { name: "블루가든", logo: "" }
+  - { name: "한옥베이커리카페", logo: "" }
+  - { name: "델리본본", logo: "" }
+  - { name: "돈블랑", logo: "" }
+  - { name: "비락", logo: "" }
+  - { name: "쿠차라", logo: "" }
+  - { name: "바나플", logo: "" }
+  - { name: "오늘회", logo: "" }
+  - { name: "상하농원", logo: "" }
+  - { name: "지평주조", logo: "" }
+  - { name: "파라다이스", logo: "" }
+  # 유통 · 패션 · 뷰티
+  - { name: "쿠팡", logo: "" }
+  - { name: "이랜드그룹", logo: "" }
+  - { name: "SN패션그룹", logo: "" }
   - { name: "8seconds", logo: "8seconds.png" }
-central:
-  - { name: "아웃백 스테이크하우스", logo: "outback.png" }
-  - { name: "차병원", logo: "" }
-  - { name: "Dentium", logo: "dentium.png" }
+  - { name: "찰스앤키스", logo: "" }
+  - { name: "TONYMOLY", logo: "tonymoly.png" }
+  - { name: "애경", logo: "" }
+  - { name: "더샘", logo: "" }
+  - { name: "스킨팩토리", logo: "" }
+  - { name: "smeg", logo: "smeg.svg" }
+  - { name: "마제스티", logo: "" }
+  - { name: "DFD", logo: "" }
+  - { name: "그린나라", logo: "" }
+  # 기업 · IT · 제조 · 서비스
+  - { name: "카카오모빌리티", logo: "kakaomobility.svg" }
+  - { name: "타다", logo: "" }
+  - { name: "AJ렌터카", logo: "" }
+  - { name: "AJ가족", logo: "" }
+  - { name: "효성ITX", logo: "hyosungitx.svg" }
+  - { name: "유베이스", logo: "ubase.gif" }
+  - { name: "서비스에이스", logo: "" }
+  - { name: "텔라이프", logo: "" }
+  - { name: "슈어소프트", logo: "suresoft.svg" }
+  - { name: "이노그리드", logo: "innogrid.svg" }
+  - { name: "텐마인즈", logo: "" }
+  - { name: "디쉐어", logo: "" }
+  - { name: "에이치에이디", logo: "" }
+  - { name: "몬스터유니온", logo: "" }
+  - { name: "스마트스코어", logo: "" }
+  - { name: "포블게이트", logo: "" }
+  - { name: "DQ", logo: "" }
+  - { name: "비즈컨설팅", logo: "" }
+  - { name: "유경제어", logo: "" }
+  - { name: "일신정밀", logo: "" }
+  - { name: "삼영S&C", logo: "" }
+  - { name: "삼코", logo: "" }
+  - { name: "코스텔", logo: "" }
+  - { name: "HUIMEI", logo: "" }
+  - { name: "티앤엘", logo: "" }
+  - { name: "태영", logo: "" }
+  - { name: "KCI", logo: "" }
   - { name: "JKC", logo: "" }
   - { name: "TEXONE", logo: "" }
   - { name: "WITHUS", logo: "" }
+  - { name: "부천제일연합", logo: "" }
+  # 금융 · 보험
+  - { name: "한화생명", logo: "" }
+  - { name: "한화손해보험", logo: "" }
+  - { name: "신한라이프", logo: "shinhanlife.svg" }
+  - { name: "KB손해보험", logo: "kb-insurance.png" }
+  - { name: "다담인베스트먼트", logo: "" }
+  - { name: "안전대부", logo: "" }
+  # 의료 · 제약 · 바이오
+  - { name: "동국제약", logo: "dongkook.png" }
+  - { name: "차병원", logo: "" }
+  - { name: "차바이오텍", logo: "" }
+  - { name: "Dentium", logo: "dentium.png" }
+  - { name: "로킷헬스케어", logo: "" }
+  - { name: "GFC생명과학", logo: "" }
