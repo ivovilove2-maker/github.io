@@ -30,23 +30,21 @@
   }
 
   // ─────────────────────────────────────────────
-  // 고객문의 폼: 작성 내용으로 메일 프로그램 열기
+  // 고객문의 폼: FormSubmit으로 회사 메일에 바로 전송
   // ─────────────────────────────────────────────
   var form = document.getElementById('inqForm');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    var here = location.href.split('?')[0].split('#')[0];
+    if (/[?&]sent=1/.test(location.search)) {
+      var done = document.getElementById('inqDone');
+      if (done) done.hidden = false;
+    }
+    form.addEventListener('submit', function () {
       var f = form.elements;
-      var subject = '[고객문의][' + f.type.value + '] ' + f.company.value;
-      var body =
-        '회사명: ' + f.company.value + '\n' +
-        '담당자명: ' + f.name.value + '\n' +
-        '연락처: ' + f.tel.value + '\n' +
-        '이메일: ' + f.email.value + '\n' +
-        '문의 구분: ' + f.type.value + '\n\n' +
-        '문의 내용:\n' + f.message.value;
-      location.href = 'mailto:sehi0401@daum.net?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      f._next.value = here + '?sent=1#inqDone';
+      f._subject.value = '[홈페이지 고객문의][' + f['문의구분'].value + '] ' + f['회사명'].value;
+      var btn = form.querySelector('button[type=submit]');
+      if (btn) { btn.disabled = true; btn.textContent = '보내는 중…'; }
     });
   }
 
