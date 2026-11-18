@@ -5,19 +5,20 @@
    색을 바꾸고 싶으면 아래 :root 값만 수정하세요.
    ========================================================= */
 :root{
-  --brand:#FF8A3D;        /* 메인 주황 */
-  --brand-dark:#E86F1F;   /* 버튼 hover */
-  --brand-soft:#FFF1E6;   /* 연한 주황 배경 */
-  --brand-softer:#FFF8F2; /* 더 연한 배경 */
-  --ink:#2D2A26;          /* 본문 글자 (따뜻한 검정) */
-  --sub:#6F6A63;          /* 보조 글자 */
-  --line:#EFE8E1;         /* 선 */
-  --bg:#FFFCF9;           /* 페이지 배경 (아이보리) */
+  --brand:#0672DC;        /* 메인 블루 (로고) */
+  --brand-dark:#0558B4;   /* 버튼 hover */
+  --brand-soft:#EDF3FB;   /* 연한 블루 배경 */
+  --brand-softer:#F5F7FA; /* 더 연한 배경 */
+  --ink:#1B1F27;          /* 본문 글자 (차콜) */
+  --sub:#646A75;          /* 보조 글자 */
+  --line:#E6E8EB;         /* 선 */
+  --bg:#FFFFFF;           /* 페이지 배경 */
+  --point:#F28C28;        /* 포인트 주황 (작은 표시에만) */
   --card:#FFFFFF;
   --radius:20px;
   --radius-sm:12px;
-  --shadow:0 6px 24px rgba(120,80,40,.08);
-  --shadow-hover:0 12px 32px rgba(120,80,40,.14);
+  --shadow:0 6px 24px rgba(20,28,40,.08);
+  --shadow-hover:0 12px 32px rgba(20,28,40,.14);
   --max:1120px;
 }
 *{box-sizing:border-box}
@@ -28,7 +29,7 @@ img{max-width:100%;display:block}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
 /* ===== 헤더 ===== */
-.hd{position:sticky;top:0;z-index:50;background:rgba(255,252,249,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .util{display:flex;justify-content:flex-end;gap:16px;font-size:12px;color:var(--sub);padding-top:8px}
 .util a:hover{color:var(--brand)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
@@ -47,7 +48,7 @@ img{max-width:100%;display:block}
 .btns{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer;font-family:inherit;transition:background .2s,transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(255,138,61,.3)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(6,114,220,.22)}
 .btn-primary:hover{background:var(--brand-dark)}
 .btn-ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
 .btn-ghost:hover{background:var(--brand-soft)}
@@ -61,8 +62,8 @@ img{max-width:100%;display:block}
   min-height:100vh;min-height:100svh;
   display:flex;align-items:center;padding:120px 0 80px;
   background:
-    linear-gradient(90deg,rgba(15,25,45,.70) 0%,rgba(15,25,45,.35) 50%,rgba(15,25,45,0) 100%),
-    linear-gradient(180deg,rgba(15,25,45,.45) 0%,rgba(15,25,45,0) 22%),
+    linear-gradient(90deg,rgba(14,17,23,.70) 0%,rgba(14,17,23,.35) 50%,rgba(14,17,23,0) 100%),
+    linear-gradient(180deg,rgba(14,17,23,.45) 0%,rgba(14,17,23,0) 22%),
     url('../../images/hero.jpg') center/cover no-repeat,
     #8FB4D9;
 }
@@ -70,8 +71,8 @@ img{max-width:100%;display:block}
 .hero h1{margin:0 0 18px;font-size:56px;line-height:1.25;font-weight:800;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.3)}
 .hero .lead{margin:0 0 36px;font-size:18px;color:#E9EEF6;text-shadow:0 1px 8px rgba(0,0,0,.3)}
 .hero .btn{padding:15px 32px;font-size:16px}
-.hero .btn-primary{background:#F5822A;box-shadow:none}
-.hero .btn-primary:hover{background:#D96A14}
+.hero .btn-primary{background:var(--brand);box-shadow:none}
+.hero .btn-primary:hover{background:var(--brand-dark)}
 .hero .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.8)}
 .hero .btn-ghost:hover{background:rgba(255,255,255,.14)}
 /* 아래로 스크롤 안내 */
@@ -90,7 +91,7 @@ img{max-width:100%;display:block}
 .is-home .hd:not(.scrolled) .gnb>li:hover>a{background:rgba(255,255,255,.15);color:#fff}
 .is-home .hd:not(.scrolled) .menu-btn span{background:#fff}
 .is-home .hd:not(.scrolled) .logo-sym circle{fill:#fff}
-.is-home .hd.scrolled{background:rgba(255,252,249,.95);backdrop-filter:blur(8px);border-bottom-color:var(--line)}
+.is-home .hd.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom-color:var(--line)}
 
 .main-sec{padding:72px 0}
 .main-sec.alt{background:var(--brand-softer)}
@@ -100,7 +101,7 @@ img{max-width:100%;display:block}
 .main-head a:hover{color:var(--brand);border-color:var(--brand)}
 .main-grid{display:grid;grid-template-columns:1fr 290px;gap:32px;align-items:start}
 .mini{margin:20px 0 10px;font-size:15px;color:var(--brand)}
-.contact-card{background:var(--brand);color:#fff;border-radius:var(--radius);padding:28px;text-align:center;box-shadow:0 12px 28px rgba(255,138,61,.3)}
+.contact-card{background:var(--brand);color:#fff;border-radius:var(--radius);padding:28px;text-align:center;box-shadow:0 12px 28px rgba(6,114,220,.22)}
 .contact-card h2{margin:0 0 8px;font-size:20px}
 .contact-card dl{margin:0}
 .contact-card dt{margin-top:16px;font-size:13px;opacity:.85}
@@ -127,7 +128,7 @@ img{max-width:100%;display:block}
 
 /* ===== 서브 공통 ===== */
 .sub-visual{position:relative;overflow:hidden;background:var(--brand-soft) url('../../images/sub.jpg') right center/cover no-repeat;padding:60px 0}
-.sub-visual::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#FFE0C7;right:-60px;top:-90px;opacity:.8}
+.sub-visual::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#DCE8F7;right:-60px;top:-90px;opacity:.8}
 .sub-visual .wrap{position:relative;z-index:1}
 .sub-visual .en{margin:0;color:var(--brand);font-weight:700;font-size:13px;letter-spacing:.06em}
 .sub-visual h1{margin:4px 0;font-size:36px;font-weight:800}
@@ -171,11 +172,11 @@ img{max-width:100%;display:block}
 .org-top{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
 .org-box{border-radius:var(--radius-sm);padding:14px 18px;text-align:center;font-weight:700;font-size:15px}
 .org-box small{display:block;font-size:13px;font-weight:400}
-.org-ceo{background:var(--brand);color:#fff;padding:20px 44px;font-size:17px;border-radius:999px;box-shadow:0 10px 24px rgba(255,138,61,.3)}
+.org-ceo{background:var(--brand);color:#fff;padding:20px 44px;font-size:17px;border-radius:999px;box-shadow:0 10px 24px rgba(6,114,220,.22)}
 .org-ceo small{opacity:.9}
-.org-side{background:#fff;color:var(--sub);border:1.5px dashed #E6D6C6;border-radius:999px}
-.org-vline{width:2px;height:36px;background:#F0D9C5}
-.org-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;border-top:2px solid #F0D9C5;padding-top:28px}
+.org-side{background:#fff;color:var(--sub);border:1.5px dashed #D5D9E0;border-radius:999px}
+.org-vline{width:2px;height:36px;background:#D5D9E0}
+.org-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;border-top:2px solid #D5D9E0;padding-top:28px}
 .org-col{display:flex;flex-direction:column;gap:10px}
 .org-head{background:var(--brand-soft);color:var(--brand-dark)}
 .org-head small{color:var(--sub)}
@@ -183,7 +184,7 @@ img{max-width:100%;display:block}
 .org-team small{color:var(--sub)}
 
 /* 연혁 */
-.timeline{border-left:3px solid #F6DCC6;margin-left:10px}
+.timeline{border-left:3px solid #D5D9E0;margin-left:10px}
 .tl-year{position:relative;padding:0 0 36px 40px}
 .tl-year::before{content:"";position:absolute;left:-12px;top:8px;width:21px;height:21px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 6px var(--brand-soft)}
 .tl-year h2{margin:0 0 12px;font-size:30px;color:var(--brand);line-height:1.2;font-weight:800}
@@ -213,7 +214,7 @@ img{max-width:100%;display:block}
 .partners article{background:var(--card);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
 .partners h2{margin:0 0 16px;font-size:18px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.chips li{background:var(--brand-soft);color:#8A4A1C;border-radius:999px;padding:7px 15px;font-size:14px;font-weight:500}
+.chips li{background:var(--brand-soft);color:#0558B4;border-radius:999px;padding:7px 15px;font-size:14px;font-weight:500}
 .job-list{margin:0;padding:8px 24px;list-style:none;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
 .job-list li{position:relative;padding:14px 0 14px 18px;border-bottom:1px solid var(--line);font-size:15px}
 .job-list li:last-child{border-bottom:0}
@@ -226,7 +227,7 @@ img{max-width:100%;display:block}
 .board td{padding:16px 8px;border-top:1px solid var(--line);text-align:center}
 .board td.c-tt{text-align:left}
 .board .c-no{width:80px}.board .c-wr{width:100px}.board .c-dt{width:120px;color:var(--sub)}
-.board .is-notice td{background:#FFFAF5}
+.board .is-notice td{background:#F5F7FA}
 .board a:hover{color:var(--brand)}
 .badge{display:inline-block;background:var(--brand);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px}
 .post{margin-top:40px;background:var(--card);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
@@ -242,7 +243,7 @@ img{max-width:100%;display:block}
 .inq-form .btn{align-self:flex-start}
 
 /* ===== 푸터 ===== */
-.ft{background:#3A3530;color:#BDB5AC;font-size:13px;padding:40px 0;border-radius:32px 32px 0 0}
+.ft{background:#1B1F27;color:#9AA0AA;font-size:13px;padding:40px 0;border-radius:32px 32px 0 0}
 .ft p{margin:2px 0}
 .ft i{font-style:normal;margin:0 6px;opacity:.5}
 .ft-name{color:#fff;font-weight:700;font-size:15px;margin-bottom:8px !important}
@@ -274,7 +275,7 @@ img{max-width:100%;display:block}
   .greet-lead .big{font-size:21px}
   .inq-form,.post,.biz article{padding:24px}
   .hero{padding:100px 0 72px;background:
-    linear-gradient(rgba(15,25,45,.55),rgba(15,25,45,.55)),
+    linear-gradient(rgba(14,17,23,.55),rgba(14,17,23,.55)),
     url('../../images/hero.jpg') center/cover no-repeat,#8FB4D9}
   .hero h1{font-size:32px}
   .hero .lead{font-size:15px}
@@ -352,14 +353,14 @@ img{max-width:100%;display:block}
    색을 바꾸려면 .pz 안의 --pz-* 값만 수정하세요.
    ========================================================= */
 .pz{
-  --pz-bg:#0F1C36;            /* 남색 배경 */
-  --pz-bg-2:#16264A;          /* 조금 밝은 남색 */
+  --pz-bg:#16191F;            /* 차콜 배경 */
+  --pz-bg-2:#23272F;          /* 조금 밝은 차콜 */
   --pz-line:rgba(255,255,255,.12);
   --pz-text:#FFFFFF;
-  --pz-sub:#A8B3C9;
-  --pz-accent:#FF9A52;        /* 포인트 주황 */
+  --pz-sub:#A3A9B3;
+  --pz-accent:#F28C28;        /* 포인트 주황 */
   --pz-card:#FFFFFF;
-  --pz-card-text:#1B2A4A;
+  --pz-card-text:#1B1F27;
   --pz-delay:4s;              /* 자동 넘김 간격 */
 
   position:relative; overflow:hidden;
@@ -481,8 +482,8 @@ img{max-width:100%;display:block}
   flex:0 0 auto; display:inline-flex; align-items:center; gap:8px;
   font-size:13px; font-weight:700; color:var(--pz-accent); white-space:nowrap;
 }
-.pz-cases-label::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--pz-accent); box-shadow:0 0 0 4px rgba(255,154,82,.2); animation:pzPulse 1.8s ease-in-out infinite; }
-@keyframes pzPulse{ 50%{ box-shadow:0 0 0 7px rgba(255,154,82,0); } }
+.pz-cases-label::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--pz-accent); box-shadow:0 0 0 4px rgba(242,140,40,.2); animation:pzPulse 1.8s ease-in-out infinite; }
+@keyframes pzPulse{ 50%{ box-shadow:0 0 0 7px rgba(242,140,40,0); } }
 .pz-cases-view{
   flex:1; min-width:0; overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
@@ -537,12 +538,12 @@ img{max-width:100%;display:block}
    메인 Business (연회색 · 편집형 목록)
    ========================================================= */
 .main-sec.bz{
-  --bz-bg:#F2F3F5;
-  --bz-ink:#14213D;           /* 남색 계열 글자 */
-  --bz-sub:#5B6478;
-  --bz-mute:#9AA2B1;
+  --bz-bg:#F2F4F7;
+  --bz-ink:#1B1F27;           /* 차콜 글자 */
+  --bz-sub:#646A75;
+  --bz-mute:#9AA0AA;
   --bz-line:#D5D9E0;
-  --bz-accent:#E8732A;
+  --bz-accent:#0672DC;
   background:var(--bz-bg); color:var(--bz-ink);
 }
 .bz-grid{ display:grid; grid-template-columns:minmax(0, 4fr) minmax(0, 7fr); gap:clamp(32px, 6vw, 96px); align-items:start; }
@@ -610,14 +611,14 @@ img{max-width:100%;display:block}
 /* =========================================================
    회사소개 (인사말 · 조직도 · 연혁) — 상자 없이 선과 여백으로
    ========================================================= */
-.sub-body{--ab-ink:#14213D;--ab-accent:#E8732A;--ab-mute:#5B6475;--ab-line:#DDE1E8}
-.ab-ey{margin:0 0 12px;font-size:12px;letter-spacing:.16em;color:var(--ab-accent);font-weight:600}
+.sub-body{--ab-ink:#1B1F27;--ab-accent:#0672DC;--ab-point:#F28C28;--ab-mute:#646A75;--ab-line:#E6E8EB}
+.ab-ey{margin:0 0 12px;font-size:12px;letter-spacing:.16em;color:var(--ab-point);font-weight:600}
 
 /* 인사말: 네이비 타이틀 띠 */
-.gr-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin:80px 0 0;padding:48px 44px;background:var(--ab-ink);color:#fff}
-.gr-hero .ab-ey{color:#FF9A52}
+.gr-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin:80px 0 0;padding:48px 44px;background:#F2F4F7;color:var(--ab-ink)}
+.gr-hero .ab-ey{color:var(--ab-point)}
 .gr-hero h2{margin:0;font-size:34px;line-height:1.4;font-weight:700;letter-spacing:-.02em}
-.gr-hero-en{margin:0;font-size:14px;color:#AAB3C5;line-height:1.6;text-align:right}
+.gr-hero-en{margin:0;font-size:14px;color:#8A909B;line-height:1.6;text-align:right}
 
 /* 인사말: 대표 서명 */
 .gr-sign{margin:48px 0 0;padding-top:24px;border-top:1px solid var(--ab-line);text-align:right;font-size:15px;color:var(--ab-mute)}
