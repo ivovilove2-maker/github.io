@@ -755,3 +755,59 @@ img{max-width:100%;display:block}
   .lc-addr{font-size:20px}
   .lc-links{justify-content:flex-start}
 }
+
+/* 사업소개: 번호 줄 + 파견·도급 관계도 */
+.bs-head{margin:8px 0 40px}
+.bs-head h2{margin:0 0 12px;font-size:32px;line-height:1.4;color:var(--ab-ink);letter-spacing:-.02em}
+.bs-head>p:last-child{margin:0;color:var(--ab-mute);font-size:15px}
+.bs-list{margin:0;padding:0;list-style:none;border-top:2px solid var(--ab-ink)}
+.bs-list>li{display:grid;grid-template-columns:72px minmax(0,300px) minmax(0,1fr);gap:24px;padding:36px 0;border-bottom:1px solid var(--ab-line)}
+.bs-no{font-size:16px;font-weight:700;color:var(--ab-accent);padding-top:3px}
+.bs-list h3{margin:0;font-size:21px;line-height:1.45;color:var(--ab-ink)}
+.bs-txt p{margin:0 0 12px;font-size:15px;line-height:1.85;color:var(--ab-mute)}
+.bs-txt p:last-child{margin-bottom:0}
+.bs-txt b{color:var(--ab-ink)}
+.bs-txt .bs-note{margin-top:16px;padding-top:14px;border-top:1px dashed #D5D9E0;font-size:14px}
+.bs-more{display:inline-block;color:var(--ab-accent);font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px}
+.bs-more:hover{color:var(--ab-ink)}
+.bs-legal{margin:72px 0 0;padding:56px 48px 44px;background:#F5F7FA;text-align:center}
+.bs-legal>h2{margin:0 0 36px;font-size:24px;color:var(--ab-ink)}
+.bs-dg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.bs-dg figure{margin:0;padding:0 32px}
+.bs-dg figure+figure{border-left:1px solid #DDE1E7}
+.bs-dg h3{margin:0 0 8px;font-size:20px;color:var(--ab-ink)}
+.bs-dg svg{display:block;width:100%;max-width:360px;height:auto;margin:0 auto}
+.bs-dg figcaption{margin:14px 0 0;font-size:14px;line-height:1.75;color:var(--ab-mute)}
+.bs-dg .ln{stroke:#1B1F27;stroke-width:1.2}
+.bs-dg .ln-cmd{stroke:#0672DC;stroke-width:1.5;stroke-dasharray:5 4}
+.bs-dg .nd-out{fill:#fff;stroke:#1B1F27;stroke-width:1.2}
+.bs-dg .nd-ink{fill:#1B1F27}
+.bs-dg .nd-blue{fill:#0672DC}
+.bs-dg text{font-family:'Pretendard',sans-serif;text-anchor:middle}
+.bs-dg .tx,.bs-dg .tx-w{font-size:12px;font-weight:600}
+.bs-dg .tx{fill:#1B1F27}.bs-dg .tx-w{fill:#fff}
+.bs-dg .lb{font-size:11.5px;fill:#646A75}
+.bs-dg .lb-s{font-size:10px;fill:#9AA0AA}
+.bs-dg .lb-b{font-size:11.5px;fill:#0672DC;font-weight:600}
+.bs-dg text[text-anchor="end"]{text-anchor:end}
+.bs-dg text[text-anchor="start"]{text-anchor:start}
+.bs-legend{margin:32px 0 0;font-size:13px;color:var(--ab-mute);display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px 8px}
+.bs-legend span{display:inline-block;width:12px;height:12px;border-radius:50%;margin-left:12px}
+.bs-legend .k-ink{background:#1B1F27;margin-left:0}
+.bs-legend .k-blue{background:#0672DC}
+.bs-legend .k-cmd{width:20px;height:0;border-radius:0;border-top:2px dashed #0672DC}
+.bs-legal + .cta{margin-top:48px}
+@media (max-width:960px){
+  .bs-list>li{grid-template-columns:48px minmax(0,1fr);gap:8px 16px}
+  .bs-txt{grid-column:2}
+  .bs-dg{grid-template-columns:minmax(0,1fr)}
+  .bs-dg figure{padding:0}
+  .bs-dg figure+figure{border-left:0;border-top:1px solid #DDE1E7;margin-top:32px;padding-top:32px}
+  .bs-legal{padding:40px 20px 32px}
+}
+@media (max-width:760px){
+  .bs-head h2{font-size:24px}
+  .bs-list>li{padding:28px 0}
+  .bs-list h3{font-size:19px}
+  .bs-legal>h2{font-size:19px}
+}
