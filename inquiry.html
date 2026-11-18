@@ -4,7 +4,12 @@ title: "고객문의"
 group: "채용문의"
 description: "㈜에스이에이치인터내셔널 고객문의"
 ---
-    <p class="page-lead">아래 양식을 작성하고 <strong>메일로 보내기</strong>를 누르면 메일 프로그램이 열립니다. 전화 상담도 가능합니다.</p>
+    <div class="rq-head">
+      <p class="ab-ey">INQUIRY</p>
+      <h2>메일로 문의하기</h2>
+      <p>아래 양식을 작성하고 <b>메일로 보내기</b>를 누르면 메일 프로그램이 열립니다. 전화 상담도 가능합니다.</p>
+    </div>
+
     <form class="inq-form" id="inqForm">
       <div class="row2">
         <label>회사명 <input type="text" name="company" required></label>
@@ -20,6 +25,7 @@ description: "㈜에스이에이치인터내셔널 고객문의"
         </select>
       </label>
       <label>문의 내용 <textarea name="message" rows="7" required placeholder="회사위치, 채용직종, 인원, 근무시간, 급여수준 등을 적어주세요."></textarea></label>
-      <button type="submit" class="btn btn-primary">메일로 보내기</button>
+      <button type="submit" class="btn btn-primary">메일로 보내기 →</button>
     </form>
+
     {% include contact-cta.html %}

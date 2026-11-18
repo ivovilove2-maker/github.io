@@ -1,10 +1,7 @@
 <div class="cta">
-  <div>
-    <h3>상담 문의</h3>
-    <p>{% for ct in site.company.contacts %}{{ ct.name }} {{ ct.phones | join: " · " }}{% unless forloop.last %} &nbsp;/&nbsp; {% endunless %}{% endfor %}</p>
-  </div>
-  <div class="btns">
-    <a class="btn btn-primary" href="tel:{{ site.company.tel | remove: '-' }}">전화 상담</a>
-    <a class="btn btn-line" href="{{ '/inquiry.html' | relative_url }}">고객문의</a>
-  </div>
+  <p class="cta-lb">상담 문의</p>
+  <ul class="cta-tel">
+    {% for ct in site.company.contacts %}<li><span>{{ ct.name }}</span>{% for p in ct.phones %}<a href="tel:{{ p | remove: '-' }}">{{ p }}</a>{% unless forloop.last %}<i>·</i>{% endunless %}{% endfor %}</li>{% endfor %}
+  </ul>
+  {% unless page.url contains 'inquiry' %}<a class="cta-go" href="{{ '/inquiry.html' | relative_url }}">문의 양식 작성 →</a>{% endunless %}
 </div>
