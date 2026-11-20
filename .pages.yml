@@ -55,6 +55,49 @@ content:
         options:
           media: files
 
+  - name: jobs
+    label: 채용공고
+    type: collection
+    path: _jobs
+    format: yaml-frontmatter
+    filename:
+      template: "{year}{month}{day}-{hour}{minute}.md"   # 글 주소가 됨: /recruit/20261120-1530.html
+      field: create
+    view:
+      primary: title
+      fields: [ title, date, closed ]
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: date
+        label: 날짜
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: thumbnail
+        label: 썸네일 (목록 카드 이미지, 세로형 3:4 권장)
+        type: image
+        required: true
+        options:
+          media: files
+      - name: closed
+        label: 마감 (목록에 '마감' 표시, 흑백 처리)
+        type: boolean
+      - name: attachments
+        label: 첨부파일
+        description: 지원서 양식 등. 글 아래에 내려받기 링크로 표시됩니다.
+        type: file
+        list: true
+        options:
+          media: files
+      - name: body
+        label: 본문 (이미지만, 글만, 또는 섞어서 작성. 비워 두면 썸네일을 크게 보여줌)
+        type: rich-text
+        options:
+          media: files
+
   - name: history
     label: 연혁
     type: file

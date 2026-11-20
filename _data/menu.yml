@@ -11,10 +11,10 @@
   url: business.html
   sub:
     - { name: 사업소개, url: business.html }
-- name: Partner
-  url: partner.html
+- name: Recruit
+  url: recruit.html
   sub:
-    - { name: 협력업체, url: partner.html }
+    - { name: 채용공고, url: recruit.html }
 - name: Notice
   url: notice.html
   sub:

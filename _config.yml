@@ -44,6 +44,9 @@ collections:
   notices:
     output: true
     permalink: /notice/:name.html
+  jobs:                                # 채용공고 (이미지 게시판): _jobs 폴더의 글 하나 = 공고 하나
+    output: true
+    permalink: /recruit/:name.html
 
 defaults:
   - scope:
@@ -54,6 +57,15 @@ defaults:
       group: "Notice"
       heading: "공지사항"     # 상단 큰 제목
       lnb: "notice.html"     # 서브메뉴에서 '공지사항'을 선택된 상태로 표시
+      writer: "SEHI"
+  - scope:
+      path: ""
+      type: jobs
+    values:
+      layout: job
+      group: "Recruit"
+      heading: "채용공고"
+      lnb: "recruit.html"
       writer: "SEHI"
 
 # 이 폴더/파일은 사이트에 올라가지 않음

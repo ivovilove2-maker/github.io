@@ -1,0 +1,36 @@
+---
+layout: sub
+---
+{%- comment -%}
+  채용공고 상세. 본문은 이미지만, 글만, 또는 섞어서 작성할 수 있습니다.
+  관리자 화면에서 올린 "/files/..." 경로는 사이트 경로(/github.io/)를 붙여 보정합니다.
+{%- endcomment -%}
+{%- assign files_url = '/files/' | relative_url -%}
+{%- assign body = content | replace: 'src="/files/', 'src="FILESURL' | replace: 'href="/files/', 'href="FILESURL' | replace: 'FILESURL', files_url -%}
+{%- assign body_text = content | strip_html | strip -%}
+<article class="post post-view job-view">
+  <h2>{% if page.closed %}<em class="job-closed">마감</em> {% endif %}{{ page.title }}</h2>
+  <p class="meta">{{ page.writer }} · {{ page.date | date: "%Y-%m-%d" }}</p>
+  <div class="post-body">
+    {%- if body_text == "" and body contains "<img" %}
+{{ body }}
+    {%- elsif body_text == "" %}
+    {%- if page.thumbnail and page.thumbnail != "" %}<p><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}"></p>{% endif %}
+    {%- else %}
+{{ body }}
+    {%- endif %}
+  </div>
+  {%- if page.attachments and page.attachments.size > 0 %}
+  <div class="post-files">
+    <strong>첨부파일</strong>
+    <ul>
+      {%- for f in page.attachments %}
+      {%- if f and f != "" %}
+      <li><a href="{{ f | relative_url }}" download>{{ f | split: "/" | last }}</a></li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+  <div class="post-foot"><a class="btn btn-line" href="{{ '/recruit.html' | relative_url }}">목록으로</a></div>
+</article>
