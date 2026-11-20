@@ -521,6 +521,16 @@ img{max-width:100%;display:block}
 .pz-cases li::after{ content:""; position:absolute; right:0; top:50%; width:3px; height:3px; margin-top:-1px; border-radius:50%; background:rgba(255,255,255,.3); }
 @keyframes pzTicker{ to{ transform:translateX(-50%); } }
 
+/* PC: 파트너존 전체(제목 + 로고 4×4 + 넘김 버튼)가 한 화면 높이에 들어오도록
+   - 로고 칸을 가로로 넓게(5:2)
+   - 화면이 낮으면 로고 영역 너비를 줄여 높이를 맞춤 (1440×900, 1366×768에서 확인) */
+@media (min-width:1025px){
+  .pz-inner{ gap:28px; max-width:max(640px, min(1100px, calc((100vh - 485px) * 2.5 + 90px))); }
+  .pz-page li{ aspect-ratio:5 / 2; }
+  .pz-eyebrow{ margin-bottom:12px; }
+  .pz-title{ margin-bottom:10px; }
+}
+
 /* JS 실행 전(또는 실패 시): 원본 목록을 바둑판으로 */
 .pz-source{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin:0; padding:0; }
 .pz.is-ready .pz-source{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
