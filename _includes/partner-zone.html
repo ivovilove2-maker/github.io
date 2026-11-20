@@ -12,18 +12,8 @@
   <div class="pz-inner">
     <div class="pz-text">
       <span class="pz-eyebrow">OUR PARTNERS</span>
-      <h2 class="pz-title">고객사와 함께 <br><em>성장하는</em> 파트너</h2>
-      <p class="pz-desc">외식 · 유통 · 패션 · 제약 · 금융 등 다양한 업종의 <br>고객사가 SEHI와 함께하고 있습니다.</p>
-
-      <dl class="pz-stats">
-        <div><dt>협력 고객사</dt><dd><b class="pz-count" data-to="{{ total }}">{{ total }}</b><small>곳</small></dd></div>
-        <div><dt>채용 진행 사례</dt><dd><b class="pz-count" data-to="{{ site.data.cases.size }}">{{ site.data.cases.size }}</b><small>건</small></dd></div>
-        <div><dt>운영 거점</dt><dd><b class="pz-count" data-to="{{ site.company.contacts.size }}">{{ site.company.contacts.size }}</b><small>곳</small></dd></div>
-      </dl>
-
-      <a class="pz-link" href="{{ '/partner.html' | relative_url }}">협력업체 전체 보기
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      <h2 class="pz-title">고객사와 함께 <em>성장하는</em> 파트너</h2>
+      <p class="pz-desc">외식 · 유통 · 패션 · 제약 · 금융 등 다양한 업종의 고객사가 SEHI와 함께하고 있습니다.</p>
     </div>
 
     <div class="pz-frame">
@@ -53,17 +43,5 @@
       </ul>
     </div>
 
-    <div class="pz-cases">
-      <strong class="pz-cases-label">최근 채용 진행</strong>
-      <div class="pz-cases-view">
-        <div class="pz-cases-track">
-          {% for loop in (1..2) %}
-          <ul{% if loop == 2 %} aria-hidden="true"{% endif %}>
-            {% for c in site.data.cases %}<li>{{ c }}</li>{% endfor %}
-          </ul>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
   </div>
 </section>

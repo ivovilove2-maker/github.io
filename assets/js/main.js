@@ -195,7 +195,7 @@
       var w = window.innerWidth;
       if (w <= 760) return { cols: 2, per: 6 };
       if (w <= 1024) return { cols: 3, per: 9 };
-      return { cols: 4, per: 12 };
+      return { cols: 4, per: 16 };   // PC: 4×4
     }
     function pad(n) { return (n < 10 ? '0' : '') + n; }
 
