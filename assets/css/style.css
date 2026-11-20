@@ -698,6 +698,8 @@ img{max-width:100%;display:block}
 .ht ul{margin:0;padding:0;list-style:none}
 .ht ul li{padding:10px 0;border-top:1px solid var(--ab-line);font-size:14px;line-height:1.7;color:var(--ab-mute)}
 .ht ul li b{display:block;font-size:13px;color:var(--ab-accent);font-weight:600}
+.ht ul li span{display:block;word-break:keep-all}
+.ht ul li span+span{margin-top:2px}
 
 @media (max-width:960px){
   .gr-name{grid-template-columns:minmax(0,1fr);gap:28px}
