@@ -1,10 +1,79 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% if page.title %}<title>{{ page.title }} | {{ site.title }}</title>{% else %}<title>{{ site.title }} | SEHI</title>{% endif %}
-<meta name="description" content="{{ page.description | default: site.description }}">
-<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
-<meta property="og:description" content="{{ page.description | default: site.description }}">
+{%- assign is_home = false -%}
+{%- if page.url == "/" or page.url == "/index.html" -%}{%- assign is_home = true -%}{%- endif -%}
+
+{%- comment -%} 제목: 메인은 키워드가 들어간 제목, 나머지는 "페이지 | 회사명" {%- endcomment -%}
+{%- if is_home -%}
+  {%- assign seo_title = site.seo.home_title -%}
+{%- else -%}
+  {%- capture seo_title -%}{{ page.title }} | {{ site.title }}{%- endcapture -%}
+{%- endif -%}
+
+{%- comment -%} 설명: 페이지 description → 공지 글은 본문 앞부분 → 사이트 기본 설명 {%- endcomment -%}
+{%- if page.description -%}
+  {%- assign seo_desc = page.description -%}
+{%- elsif page.collection == "notices" and page.content -%}
+  {%- assign seo_desc = page.content | strip_html | normalize_whitespace | truncate: 120 -%}
+{%- endif -%}
+{%- if seo_desc == nil or seo_desc == "" -%}{%- assign seo_desc = site.description -%}{%- endif -%}
+
+{%- assign canonical = page.url | replace: "index.html", "" | absolute_url -%}
+{%- assign og_image = site.seo.image | absolute_url -%}
+
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_desc | escape }}">
+<meta name="keywords" content="{{ site.seo.keywords }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ canonical }}">
+{%- if site.seo.naver_verification != "" %}
+<meta name="naver-site-verification" content="{{ site.seo.naver_verification }}">
+{%- endif %}
+{%- if site.seo.google_verification != "" %}
+<meta name="google-site-verification" content="{{ site.seo.google_verification }}">
+{%- endif %}
+
+<!-- 링크 미리보기 (카카오톡·네이버·페이스북 등) -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="{{ seo_title }}">
+<meta property="og:description" content="{{ seo_desc | escape }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.title }} 로고">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo_title }}">
+<meta name="twitter:description" content="{{ seo_desc | escape }}">
+<meta name="twitter:image" content="{{ og_image }}">
+
+{%- if is_home %}
+<!-- 검색엔진용 회사 정보 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.company.name }}",
+  "alternateName": "SEHI",
+  "url": "{{ '/' | absolute_url }}",
+  "logo": "{{ '/images/og-image.png' | absolute_url }}",
+  "description": "{{ site.description }}",
+  "email": "{{ site.company.email }}",
+  "telephone": "{{ site.company.tel }}",
+  "faxNumber": "{{ site.company.fax }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.company.address }}",
+    "addressLocality": "서울특별시 금천구",
+    "addressCountry": "KR"
+  },
+  "sameAs": ["{{ site.company.blog }}"]
+}
+</script>
+{%- endif %}
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
