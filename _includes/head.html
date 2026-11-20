@@ -24,7 +24,7 @@
 <title>{{ seo_title }}</title>
 <meta name="description" content="{{ seo_desc | escape }}">
 <meta name="keywords" content="{{ site.seo.keywords }}">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="{% if site.seo.noindex %}noindex, nofollow{% else %}index, follow{% endif %}">
 <link rel="canonical" href="{{ canonical }}">
 {%- if site.seo.naver_verification != "" %}
 <meta name="naver-site-verification" content="{{ site.seo.naver_verification }}">

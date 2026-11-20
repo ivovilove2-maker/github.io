@@ -3,6 +3,10 @@ layout: null
 sitemap: false
 ---
 User-agent: *
+{% if site.seo.noindex -%}
+Disallow: /
+{%- else -%}
 Allow: /
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
+{%- endif %}
