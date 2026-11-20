@@ -1,5 +1,5 @@
 {% assign grp = site.data.menu | where: "name", page.group | first %}
-{% assign cur = page.url | remove_first: "/" %}
+{% assign cur = page.lnb | default: page.url | remove_first: "/" %}
 <nav class="lnb" aria-label="하위 메뉴">
   <ul class="wrap">
     {% for s in grp.sub %}<li{% if s.url == cur %} class="on"{% endif %}><a href="{{ s.url | relative_url }}">{{ s.name }}</a></li>{% endfor %}

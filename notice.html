@@ -4,19 +4,26 @@ title: "공지사항"
 group: "Notice"
 description: "㈜에스이에이치인터내셔널 공지사항"
 ---
+{%- comment -%}
+  목록은 _notices 폴더의 글 파일로 자동 생성됩니다. 이 파일은 고칠 필요가 없습니다.
+  - pinned: true 인 글은 맨 위에 '공지' 배지로 표시
+  - 나머지는 날짜 최신순, 번호는 자동
+{%- endcomment -%}
+{% assign all = site.notices | sort: "date" | reverse %}
+{% assign pinned = all | where: "pinned", true %}
+{% assign normal = all | where_exp: "n", "n.pinned != true" %}
     <table class="board">
       <thead><tr><th scope="col" class="c-no">번호</th><th scope="col">제목</th><th scope="col" class="c-wr">작성자</th><th scope="col" class="c-dt">날짜</th></tr></thead>
       <tbody>
-        <tr class="is-notice"><td class="c-no"><span class="badge">공지</span></td><td class="c-tt"><a href="#post-blog">S.E.H.I 의 정식 블로그가 오픈했습니다</a></td><td class="c-wr">SEHI</td><td class="c-dt">2025-08-21</td></tr>
-        <tr class="is-notice"><td class="c-no"><span class="badge">공지</span></td><td class="c-tt">채용문의 관련 사항입니다.</td><td class="c-wr">SEHI</td><td class="c-dt">-</td></tr>
-        <tr><td class="c-no">3</td><td class="c-tt">[SEHI] 2020년 귀속 연말정산 안내입니다.</td><td class="c-wr">SEHI</td><td class="c-dt">-</td></tr>
-        <tr><td class="c-no">2</td><td class="c-tt">[SEHI] 2019년 귀속 연말정산 안내입니다.</td><td class="c-wr">SEHI</td><td class="c-dt">-</td></tr>
-        <tr><td class="c-no">1</td><td class="c-tt">2018년 귀속 연말정산 안내입니다.</td><td class="c-wr">SEHI</td><td class="c-dt">-</td></tr>
+        {%- for n in pinned %}
+        {% include notice-row.html n=n badge=true %}
+        {%- endfor %}
+        {%- for n in normal %}
+        {% assign no = normal.size | minus: forloop.index0 %}
+        {% include notice-row.html n=n no=no %}
+        {%- endfor %}
+        {%- if all.size == 0 %}
+        <tr><td colspan="4">등록된 공지사항이 없습니다.</td></tr>
+        {%- endif %}
       </tbody>
     </table>
-    <article class="post" id="post-blog">
-      <h2>S.E.H.I 의 정식 블로그가 오픈했습니다</h2>
-      <p class="meta">SEHI · 2025-08-21</p>
-      <p>㈜에스이에이치인터내셔널의 정식 블로그가 오픈했습니다. 채용공고와 회사 소식을 블로그에서 확인하세요.</p>
-      <p><a class="btn btn-primary" href="https://blog.naver.com/sehi0403" target="_blank" rel="noopener">blog.naver.com/sehi0403 바로가기</a></p>
-    </article>

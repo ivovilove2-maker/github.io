@@ -50,7 +50,10 @@ description: "㈜에스이에이치인터내셔널(SEHI) - 근로자 파견, 도
     <div class="wrap">
       <div class="notice-bar">
         <span class="lbl">고객센터 : 공지사항</span>
-        <a href="notice.html#post-blog">S.E.H.I 의 정식 블로그가 오픈했습니다</a>
+        {%- assign latest = site.notices | sort: "date" | reverse | first %}
+        {%- if latest %}
+        <a href="{{ latest.url | relative_url }}">{{ latest.title }}</a>
+        {%- endif %}
         <a class="more" href="notice.html">더보기 +</a>
       </div>
     </div>

@@ -236,6 +236,11 @@ img{max-width:100%;display:block}
 .post{margin-top:40px;background:var(--card);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
 .post h2{margin:0 0 4px;font-size:22px}
 .post .meta{margin:0 0 20px;color:var(--sub);font-size:13px}
+.post-view{margin-top:0}
+.post-view .meta{padding-bottom:18px;border-bottom:1px solid var(--line)}
+.post-body{line-height:1.8;word-break:keep-all}
+.post-body img{max-width:100%;height:auto;border-radius:8px}
+.post-foot{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
 
 /* 문의 폼 */
 .inq-form{display:flex;flex-direction:column;gap:18px;max-width:760px;background:var(--card);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}

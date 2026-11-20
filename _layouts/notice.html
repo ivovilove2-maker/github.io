@@ -1,0 +1,11 @@
+---
+layout: sub
+---
+<article class="post post-view">
+  <h2>{{ page.title }}</h2>
+  <p class="meta">{{ page.writer }}{% unless page.hide_date %} · {{ page.date | date: "%Y-%m-%d" }}{% endunless %}</p>
+  <div class="post-body">
+{{ content }}
+  </div>
+  <div class="post-foot"><a class="btn btn-line" href="{{ '/notice.html' | relative_url }}">목록으로</a></div>
+</article>

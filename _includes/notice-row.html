@@ -1,0 +1,3 @@
+{%- assign n = include.n -%}
+{%- assign body = n.content | strip_html | strip -%}
+<tr{% if include.badge %} class="is-notice"{% endif %}><td class="c-no">{% if include.badge %}<span class="badge">공지</span>{% else %}{{ include.no }}{% endif %}</td><td class="c-tt">{% if body != "" %}<a href="{{ n.url | relative_url }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</td><td class="c-wr">{{ n.writer }}</td><td class="c-dt">{% if n.hide_date %}-{% else %}{{ n.date | date: "%Y-%m-%d" }}{% endif %}</td></tr>

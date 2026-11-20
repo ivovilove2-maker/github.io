@@ -22,6 +22,23 @@ company:
     - { name: "서울본사", phones: ["02-866-0401", "070-4236-1916"] }
     - { name: "중부지점", phones: ["010-2210-8219", "070-4229-4747"] }
 
+# 공지사항 게시판: _notices 폴더의 글 파일 하나 = 공지 하나
+collections:
+  notices:
+    output: true
+    permalink: /notice/:name.html
+
+defaults:
+  - scope:
+      path: ""
+      type: notices
+    values:
+      layout: notice
+      group: "Notice"
+      heading: "공지사항"     # 상단 큰 제목
+      lnb: "notice.html"     # 서브메뉴에서 '공지사항'을 선택된 상태로 표시
+      writer: "SEHI"
+
 # 이 폴더/파일은 사이트에 올라가지 않음
 exclude:
   - README.md
