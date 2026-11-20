@@ -250,6 +250,12 @@ img{max-width:100%;display:block}
 .post-body th{background:var(--brand-softer);color:var(--brand-dark)}
 .post-body td:first-child{width:30%;font-weight:600}
 @media (max-width:768px){.post-body td:first-child{width:auto}.post-body table{display:block;overflow-x:auto;white-space:nowrap}}
+.post-files{margin-top:28px;padding:16px 20px;background:var(--brand-softer);border-radius:var(--radius-sm,8px)}
+.post-files strong{display:block;margin-bottom:6px;font-size:14px;color:var(--brand-dark)}
+.post-files ul{margin:0;padding:0;list-style:none}
+.post-files li{padding:4px 0;font-size:15px}
+.post-files a{color:var(--brand);text-decoration:underline;word-break:break-all}
+.post-files a::before{content:"↓ ";font-weight:700}
 .post-foot{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
 
 /* 문의 폼 */

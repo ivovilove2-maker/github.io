@@ -1,11 +1,29 @@
 ---
 layout: sub
 ---
+{%- comment -%}
+  관리자 화면(Pages CMS)에서 올린 파일은 "/files/..." 로 저장됩니다.
+  사이트가 하위 경로(/github.io/)에 있어도 링크가 깨지지 않도록 앞에 사이트 경로를 붙입니다.
+{%- endcomment -%}
+{%- assign files_url = '/files/' | relative_url -%}
+{%- assign body = content | replace: 'src="/files/', 'src="FILESURL' | replace: 'href="/files/', 'href="FILESURL' | replace: 'FILESURL', files_url -%}
 <article class="post post-view">
   <h2>{{ page.title }}</h2>
   <p class="meta">{{ page.writer }}{% unless page.hide_date %} · {{ page.date | date: "%Y-%m-%d" }}{% endunless %}</p>
   <div class="post-body">
-{{ content }}
+{{ body }}
   </div>
+  {%- if page.attachments and page.attachments.size > 0 %}
+  <div class="post-files">
+    <strong>첨부파일</strong>
+    <ul>
+      {%- for f in page.attachments %}
+      {%- if f and f != "" %}
+      <li><a href="{{ f | relative_url }}" download>{{ f | split: "/" | last }}</a></li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
   <div class="post-foot"><a class="btn btn-line" href="{{ '/notice.html' | relative_url }}">목록으로</a></div>
 </article>

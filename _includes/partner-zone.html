@@ -35,7 +35,9 @@
       <ul class="pz-source" aria-label="협력업체">
         {% comment %} 로고가 있는 곳을 먼저, 글자만 있는 곳을 뒤에 {% endcomment %}
         {% for p in partners %}{% if p.logo and p.logo != "" %}
-        <li><img src="{{ '/images/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }}"></li>
+        {%- comment -%} logo: 파일명만(outback.png) 또는 관리자 화면에서 올린 경로(/images/partners/x.png) {%- endcomment -%}
+        {%- if p.logo contains "/" %}{% assign src = p.logo | relative_url %}{% else %}{% assign src = '/images/partners/' | append: p.logo | relative_url %}{% endif %}
+        <li><img src="{{ src }}" alt="{{ p.name }}"></li>
         {% endif %}{% endfor %}
         {% for p in partners %}{% unless p.logo and p.logo != "" %}
         <li><span>{{ p.name }}</span></li>

@@ -1,0 +1,113 @@
+# Pages CMS 설정 (https://app.pagescms.org 에서 GitHub 계정으로 로그인해 사용)
+# 이 파일은 관리자 화면의 메뉴·입력칸을 정합니다. 사이트 모양에는 영향이 없습니다.
+
+media:
+  - name: files
+    label: 첨부파일·본문 이미지
+    input: files
+    output: /files
+    rename: safe
+  - name: partners
+    label: 파트너 로고
+    input: images/partners
+    output: /images/partners
+    rename: safe
+    categories: [image]
+
+content:
+  - name: notices
+    label: 공지사항
+    type: collection
+    path: _notices
+    format: yaml-frontmatter
+    filename:
+      template: "{year}{month}{day}-{hour}{minute}.md"   # 글 주소가 됨: /notice/20261120-1530.html
+      field: create
+    view:
+      primary: title
+      fields: [ title, date, pinned ]
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: date
+        label: 날짜
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: pinned
+        label: 맨 위 고정 (공지 배지)
+        type: boolean
+      - name: hide_date
+        label: 날짜 숨김 (목록에 '-'로 표시)
+        type: boolean
+      - name: attachments
+        label: 첨부파일
+        description: PDF·한글·엑셀 등. 글 아래에 내려받기 링크로 표시됩니다.
+        type: file
+        list: true
+        options:
+          media: files
+      - name: body
+        label: 본문
+        type: rich-text
+        options:
+          media: files
+
+  - name: history
+    label: 연혁
+    type: file
+    path: _data/history.yml
+    format: yaml
+    list: true
+    fields:
+      - name: year
+        label: 연도
+        type: number
+        required: true
+      - name: title
+        label: 요약 제목
+        type: string
+      - name: key
+        label: 연도 강조
+        type: boolean
+      - name: months
+        label: 월별 내용
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{m}월"
+        fields:
+          - name: m
+            label: 월 (예 04)
+            type: string
+          - name: items
+            label: 내용
+            type: string
+            list: true
+
+  - name: partners
+    label: 협력업체 (메인 파트너존)
+    type: file
+    path: _data/partners.yml
+    format: yaml
+    fields:
+      - name: list
+        label: 협력업체 목록 (위에서부터 순서대로 표시)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: 회사명
+            type: string
+            required: true
+          - name: logo
+            label: 로고 (없으면 회사명 글자로 표시)
+            type: image
+            options:
+              media: partners

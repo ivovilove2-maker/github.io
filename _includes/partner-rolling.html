@@ -13,7 +13,8 @@
       <ul class="rolling-list"{% if loop == 2 %} aria-hidden="true"{% endif %}>
         {% for p in list %}
         <li class="rolling-item">
-          {% if p.logo != "" %}<img src="{{ '/images/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }}" loading="lazy">{% else %}<span>{{ p.name }}</span>{% endif %}
+          {% if p.logo contains "/" %}{% assign src = p.logo | relative_url %}{% else %}{% assign src = '/images/partners/' | append: p.logo | relative_url %}{% endif %}
+          {% if p.logo != "" %}<img src="{{ src }}" alt="{{ p.name }}" loading="lazy">{% else %}<span>{{ p.name }}</span>{% endif %}
         </li>
         {% endfor %}
       </ul>
